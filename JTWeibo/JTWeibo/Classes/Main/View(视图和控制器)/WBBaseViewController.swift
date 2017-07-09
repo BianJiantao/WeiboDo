@@ -14,7 +14,7 @@ class WBBaseViewController: UIViewController {
     /// 自定义导航条
     lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth(), height: 64))
     
-    /// 自定义导航条item
+    /// 自定义导航条item , 以后设置导航栏内容, 统一使用navItem
     lazy var navItem = UINavigationItem()
     
     
@@ -26,7 +26,7 @@ class WBBaseViewController: UIViewController {
     }
 
     
-    /// 重写 title 的 didSet 
+    /// 重写 title 的 didSet
     override var title: String?{
         didSet{
             
@@ -46,7 +46,9 @@ extension WBBaseViewController{
         view.backgroundColor = UIColor.random()
         view.addSubview(navBar)
         navBar.items = [navItem]
-    
+        // 设置 bar 背景渲染颜色
+        navBar.barTintColor = UIColor(hex: 0xF6F6F6)
+        
     }
     
 }
