@@ -9,6 +9,12 @@
 import UIKit
 
 class WBNavigationController: UINavigationController {
+    
+    
+    override func viewDidLoad() {
+        
+        navigationBar.isHidden = true
+    }
 
     // 重写 push 方法, 隐藏底部 tabbar
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {

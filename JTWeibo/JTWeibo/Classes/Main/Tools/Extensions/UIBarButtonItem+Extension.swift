@@ -11,7 +11,7 @@ import UIKit
 
 extension UIBarButtonItem{
     
-    /// 自定义 UIBarButtonItem
+    /// 自定义 UIBarButtonItem , 便利构造函数
     ///
     /// - parameter title:    title
     /// - parameter fontSize: fontSize 默认16

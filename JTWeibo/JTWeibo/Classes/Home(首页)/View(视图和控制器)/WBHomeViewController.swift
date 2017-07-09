@@ -35,7 +35,7 @@ extension WBHomeViewController{
         // -> 系统自带的没有高亮
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action: #selector(showFriends))
         
-        // -> 代码多出用到,进行抽取
+        // -> 代码多处用到,进行抽取
 //        let btn:UIButton = UIButton.textButton("好友", fontSize: 16, normalColor: UIColor.darkGray, highlightedColor: UIColor.orange)
 //        btn.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
