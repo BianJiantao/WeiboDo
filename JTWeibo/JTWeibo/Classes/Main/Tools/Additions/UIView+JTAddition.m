@@ -1,10 +1,4 @@
-//
-//  UIView+CZAddition.m
-//  003-
-//
-//  Created by 张杰 on 16/5/11.
-//  Copyright © 2016年 itheima. All rights reserved.
-//
+
 
 #import "UIView+JTAddition.h"
 
