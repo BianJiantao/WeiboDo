@@ -33,7 +33,7 @@ class WBNavigationController: UINavigationController {
                     
                 }
                 
-                vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(back))
+                vc.navItem.leftBarButtonItem = UIBarButtonItem(title: title, target: self, action: #selector(back),isBack:true)
             }
             
             

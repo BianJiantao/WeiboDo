@@ -26,14 +26,13 @@ class WBBaseViewController: UIViewController {
     }
 
     
-    /// 重写 title 的 didSet
+    /// 重写 title 的 didSet , 设置导航条 title
     override var title: String?{
         didSet{
             
             navItem.title = title
         }
     }
-    
 
 }
 
@@ -45,10 +44,12 @@ extension WBBaseViewController{
     
         view.backgroundColor = UIColor.random()
         view.addSubview(navBar)
+        // 将自定义的 navItem 设置给自定义的 navBar
         navBar.items = [navItem]
         // 设置 bar 背景渲染颜色
         navBar.barTintColor = UIColor(hex: 0xF6F6F6)
-        
+        // 设置 bar title 文字的颜色
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.darkGray]
     }
     
 }
