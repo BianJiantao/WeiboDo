@@ -28,6 +28,7 @@
 		6C23178E1F12142600EB3193 /* WBDiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23178D1F12142600EB3193 /* WBDiscoverViewController.swift */; };
 		6C2317911F121CA500EB3193 /* UIButton+JTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317901F121CA500EB3193 /* UIButton+JTAddition.m */; };
 		6C2317941F121E9400EB3193 /* UIImage+JTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317931F121E9400EB3193 /* UIImage+JTAddition.m */; };
+		6C2317991F124A0C00EB3193 /* WBTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317981F124A0C00EB3193 /* WBTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		6C2317901F121CA500EB3193 /* UIButton+JTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+JTAddition.m"; sourceTree = "<group>"; };
 		6C2317921F121E9400EB3193 /* UIImage+JTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTAddition.h"; sourceTree = "<group>"; };
 		6C2317931F121E9400EB3193 /* UIImage+JTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTAddition.m"; sourceTree = "<group>"; };
+		6C2317981F124A0C00EB3193 /* WBTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				6C2317801F1212D500EB3193 /* WBHomeViewController.swift */,
+				6C2317981F124A0C00EB3193 /* WBTestViewController.swift */,
 			);
 			path = "View(视图和控制器)";
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				6C23175C1F11D16C00EB3193 /* WBBaseViewController.swift in Sources */,
 				6C2317631F11E41400EB3193 /* Bundle+Extension.swift in Sources */,
 				6C2317891F12133D00EB3193 /* WBProfileViewController.swift in Sources */,
+				6C2317991F124A0C00EB3193 /* WBTestViewController.swift in Sources */,
 				6C2317941F121E9400EB3193 /* UIImage+JTAddition.m in Sources */,
 				6C23177A1F120AD700EB3193 /* UIViewController+JTAddition.m in Sources */,
 				6C2317911F121CA500EB3193 /* UIButton+JTAddition.m in Sources */,
