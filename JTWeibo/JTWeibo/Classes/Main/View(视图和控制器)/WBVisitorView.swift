@@ -25,10 +25,16 @@ class WBVisitorView: UIView {
             // 设置视图信息
             tipLabel.text = message
             
-            if imageName == ""{
+            // 设置图像
+            if imageName == ""{ // 首页控制器不需要设置,默认的就是首页的,直接返回
                 return
             }
+            
+            // 设置首页之外的其他控制器
             iconView.image = UIImage(named: imageName)
+            // 其他控制器的访客视图不需要显示小房子图像 和 遮盖
+            houseIconView.isHidden = true
+            maskImageView.isHidden = true
             
         }
     }
@@ -152,7 +158,7 @@ extension WBVisitorView {
                                          toItem: nil,
                                          attribute:.notAnAttribute ,
                                          multiplier: 1.0,
-                                         constant: 220))
+                                         constant: 230))
         //注册按钮
         addConstraint(NSLayoutConstraint(item: registerButton,
                                          attribute: .left,

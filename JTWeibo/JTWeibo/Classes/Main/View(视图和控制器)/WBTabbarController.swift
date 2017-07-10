@@ -116,7 +116,7 @@ extension WBTabbarController{
     
     /// 利用字典创建一个子控制器
     ///
-    /// - parameter dict: 控制器信息字典[clsName , title , imageName]
+    /// - parameter dict: 控制器信息字典[clsName , title , imageName, visitorViewInfo]
     ///
     /// - returns: 子控制器
     private func controllerWithDict(dict:[String : Any]) -> UIViewController{
@@ -125,13 +125,18 @@ extension WBTabbarController{
         guard let clsName = dict["clsName"] as? String ,
               let title = dict["title"] as? String ,
               let imageName = dict["imageName"] as? String ,
-              let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type  else{
+              let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? WBBaseViewController.Type,
+              let visitorViewInfo = dict["visitorViewInfo"] as? [String:String] else{
                 
             return UIViewController()
         }
         
         // 创建控制器
         let vc = cls.init()
+        
+        // 设置访客视图数据
+        vc.visitorViewInfo = visitorViewInfo
+        
         // 设置title , 字体(默认是12), 选中时颜色
         vc.title = title
         vc.tabBarItem.setTitleTextAttributes(
