@@ -32,10 +32,21 @@ class WBHomeViewController: WBBaseViewController {
     
     // 加载数据
     override func loadData() {
-        for i in 0..<15 {
+        
+        /// 模拟'延时'加载数据
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
             
-            statusList.insert(i.description, at: 0)
+            for i in 0..<15 {
+                
+                self.statusList.insert(i.description, at: 0)
+            }
+            // 刷新表格
+            self.tableView?.reloadData()
+            // 结束刷新
+            self.refreshControl?.endRefreshing()
+            
         }
+        
     }
     
 

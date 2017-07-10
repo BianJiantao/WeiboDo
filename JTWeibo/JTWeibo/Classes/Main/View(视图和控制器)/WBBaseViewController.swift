@@ -11,6 +11,7 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     var tableView:UITableView?
+    var refreshControl:UIRefreshControl?
     
     /// 自定义导航条
     lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth(), height: 64))
@@ -51,7 +52,7 @@ extension WBBaseViewController{
     func setupUI(){
     
         view.backgroundColor = UIColor.random()
-        // 禁止自动调整内容缩进
+        // 禁止自动调整ScrollView内容缩进
         automaticallyAdjustsScrollViewInsets = false
         setupNavBar()
         setupTableView()
@@ -67,11 +68,20 @@ extension WBBaseViewController{
         // 设置数据源/代理
         tableView?.dataSource = self
         tableView?.delegate = self
-        // 设置视图缩进, top 缩进导航条的高度, bottom 缩进 tabbar 的高度(默认是49)
+        // 设置表格视图缩进, top 缩进导航条的高度, bottom 缩进 tabbar 的高度(默认是49)
         tableView?.contentInset = UIEdgeInsets(top: navBar.bounds.height,
                                                left: 0,
                                                bottom: tabBarController?.tabBar.bounds.height ?? 49,
                                                right: 0)
+        // 设置下拉刷新
+        // 实例化刷新控件
+        refreshControl = UIRefreshControl()
+        // 添加到视图
+        tableView?.addSubview(refreshControl!)
+        // 添加监听方法
+        refreshControl?.addTarget(self, action: #selector(loadData), for: .valueChanged)
+        
+        
     }
     
     /// 设置导航条
