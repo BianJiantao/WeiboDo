@@ -65,13 +65,44 @@ extension WBTabbarController{
     /// 设置子控制器
     fileprivate func setupChildControllers() {
         
-        let array = [
-            ["clsName":"WBHomeViewController","title":"首页","imageName":"home"],
-            ["clsName":"WBMessageViewController","title":"消息","imageName":"message_center"],
+        // 界面的创建依赖于网络请求的 json
+        let array:[[String:Any]] = [
+            [
+             "clsName":"WBHomeViewController",
+             "title":"首页",
+             "imageName":"home",
+             "visitorViewInfo":["imageName":"",
+                                "message":"关注一些人，回这里看看有什么惊喜"]
+            ],
+            
+            [
+             "clsName":"WBMessageViewController",
+             "title":"消息",
+             "imageName":"message_center",
+             "visitorViewInfo":["imageName":"visitordiscover_image_message",
+                                "message":"登陆后，别人评论你的微博，发给你的消息，都会在这里收到通知"]
+            ],
+            
             ["clsName":"UIViewController"],
-            ["clsName":"WBDiscoverViewController","title":"发现","imageName":"discover"],
-            ["clsName":"WBProfileViewController","title":"我","imageName":"profile"]
+            
+            [
+             "clsName":"WBDiscoverViewController",
+             "title":"发现",
+             "imageName":"discover",
+             "visitorViewInfo":["imageName":"visitordiscover_image_message",
+                                "message":"登陆后，最新、最热的微博尽在掌握中，不会再于实事潮流擦肩而过"]
+            ],
+            
+            [
+             "clsName":"WBProfileViewController",
+             "title":"我",
+             "imageName":"profile",
+             "visitorViewInfo":["imageName":"visitordiscover_image_profile",
+                                "message":"登陆后，你的微博、相册、个人资料会显示在这里，展示给别人"]
+            ]
         ]
+        // 测试数据格式是否在正确, 转换成 plist 查看
+//        (array as NSArray).write(toFile: "/Users/bjt/Desktop/JTWeibo.plist", atomically: true)
         
         var arrayM = [UIViewController]()
         for dict in array {
@@ -88,12 +119,12 @@ extension WBTabbarController{
     /// - parameter dict: 控制器信息字典[clsName , title , imageName]
     ///
     /// - returns: 子控制器
-    private func controllerWithDict(dict:[String : String]) -> UIViewController{
+    private func controllerWithDict(dict:[String : Any]) -> UIViewController{
         
         // 取出字典内容
-        guard let clsName = dict["clsName"],
-              let title = dict["title"],
-              let imageName = dict["imageName"],
+        guard let clsName = dict["clsName"] as? String ,
+              let title = dict["title"] as? String ,
+              let imageName = dict["imageName"] as? String ,
               let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type  else{
                 
             return UIViewController()

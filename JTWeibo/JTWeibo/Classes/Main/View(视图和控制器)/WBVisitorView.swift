@@ -10,6 +10,30 @@ import UIKit
 
 class WBVisitorView: UIView {
 
+    
+    // 访客视图信息字典 [imageName / message ]
+    // 如果是首页 imageName = "" ,因为默认的就是首页信息
+    var visitorInfo : [String:String]?{
+        didSet{
+            
+            // 取出字典信息
+           guard let imageName = visitorInfo?["imageName"],
+                    let message = visitorInfo?["message"] else{
+                return
+            }
+            
+            // 设置视图信息
+            tipLabel.text = message
+            
+            if imageName == ""{
+                return
+            }
+            iconView.image = UIImage(named: imageName)
+            
+        }
+    }
+    
+    // MARK:- 构造函数
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -59,7 +83,7 @@ class WBVisitorView: UIView {
 extension WBVisitorView {
     
     func setupUI() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor(hex: 0xEDEDED)
         
         // 添加控件
         addSubview(iconView)

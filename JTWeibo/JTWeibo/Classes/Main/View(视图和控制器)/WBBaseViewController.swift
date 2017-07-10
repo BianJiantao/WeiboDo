@@ -10,6 +10,9 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    // 访客视图信息字典
+    var visitorViewInfo:[String:String]?
+    
     // 登录标识符
     var userLogon = false
     // 表格视图
@@ -96,6 +99,7 @@ extension WBBaseViewController{
         
         let visitorView = WBVisitorView(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBar)
+        visitorView.visitorInfo = visitorViewInfo
         
     }
     
