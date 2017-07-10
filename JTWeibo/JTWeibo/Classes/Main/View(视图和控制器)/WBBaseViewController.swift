@@ -11,7 +11,10 @@ import UIKit
 class WBBaseViewController: UIViewController {
 
     var tableView:UITableView?
+    // 下拉刷新控件
     var refreshControl:UIRefreshControl?
+    var isPullRefresh:Bool = false
+    
     
     /// 自定义导航条
     lazy var navBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: UIScreen.screenWidth(), height: 64))
@@ -109,6 +112,29 @@ extension WBBaseViewController : UITableViewDataSource,UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell()
     }
+    
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        // 将要显示的第几行
+        let row = indexPath.row
+        // 最后一个section的行数
+        let section = tableView.numberOfSections - 1
+        let count = tableView.numberOfRows(inSection: section)
+        
+        if row < 0 || section < 0 {
+            return
+        }
+        
+        if row == count-1 , !isPullRefresh { // 将要显示的行是最后一个section的最后一行,且没有在上拉刷新
+            print("上拉刷新")
+            isPullRefresh = true
+            
+            loadData()
+        }
+        
+    }
+    
     
 }
 

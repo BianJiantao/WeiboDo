@@ -34,14 +34,26 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         /// 模拟'延时'加载数据
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
             
             for i in 0..<15 {
                 
-                self.statusList.insert(i.description, at: 0)
+                if self.isPullRefresh { // 上拉刷新
+                    
+                    self.statusList.append("上拉\(i)")
+                    
+                }else { // 下拉刷新
+                    
+                    self.statusList.insert(i.description, at: 0)
+                }
+                
+                
             }
             // 刷新表格
             self.tableView?.reloadData()
+            // 重置上拉刷新标记
+            self.isPullRefresh = false
+            
             // 结束刷新
             self.refreshControl?.endRefreshing()
             
