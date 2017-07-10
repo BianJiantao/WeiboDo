@@ -27,6 +27,8 @@ class WBVisitorView: UIView {
             
             // 设置图像
             if imageName == ""{ // 首页控制器不需要设置,默认的就是首页的,直接返回
+                // 开启动画
+                startAnimation()
                 return
             }
             
@@ -49,6 +51,21 @@ class WBVisitorView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    /// 首页控制器的旋转图标动画
+    fileprivate func startAnimation() {
+        
+        let ani = CABasicAnimation(keyPath: "transform.rotation")
+        ani.toValue = 2 * M_PI
+        ani.repeatCount = MAXFLOAT
+        ani.duration  = 15
+        // TIPS : 动画完成不移除, (保证 切换其他子控制器或者 home键退回到手机桌面后, 再切换回来时动画依旧在执行)
+        // 在设置连续播放的动画时,非常有用
+        ani.isRemovedOnCompletion = false
+        
+        iconView.layer.add(ani, forKey: nil)
+        
     }
     
     
