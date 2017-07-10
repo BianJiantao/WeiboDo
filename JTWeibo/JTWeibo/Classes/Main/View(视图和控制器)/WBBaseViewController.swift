@@ -10,6 +10,9 @@ import UIKit
 
 class WBBaseViewController: UIViewController {
 
+    // 登录标识符
+    var userLogon = false
+    // 表格视图
     var tableView:UITableView?
     // 下拉刷新控件
     var refreshControl:UIRefreshControl?
@@ -59,7 +62,7 @@ extension WBBaseViewController{
         // 禁止自动调整ScrollView内容缩进
         automaticallyAdjustsScrollViewInsets = false
         setupNavBar()
-        setupTableView()
+        userLogon ? setupTableView() : setupVisitorView()
     }
     
     
@@ -87,6 +90,16 @@ extension WBBaseViewController{
         
         
     }
+    
+    /// 设置访客视图
+    private func setupVisitorView(){
+        
+        let visitorView = UIView(frame: view.bounds)
+        visitorView.backgroundColor = UIColor.random()
+        view.insertSubview(visitorView, belowSubview: navBar)
+        
+    }
+    
     
     /// 设置导航条
     private func setupNavBar(){
