@@ -18,6 +18,12 @@ class WBTabbarController: UITabBarController {
 
     }
     
+    // 设置设备方向
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+        return .portrait
+    }
+    
+    
     // MARK: - 监听方法
     /// 发微博
     // FIXME: 没有实现
