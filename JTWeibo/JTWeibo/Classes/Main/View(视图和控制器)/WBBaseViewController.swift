@@ -35,7 +35,8 @@ class WBBaseViewController: UIViewController {
     
     /// 加载数据,交由子类实现
     func loadData(){
-        
+        // 如果子类没有实现该方法, 默认关闭刷新控件
+        refreshControl?.endRefreshing()
     }
     
     /// 重写 title 的 didSet , 设置导航条 title
