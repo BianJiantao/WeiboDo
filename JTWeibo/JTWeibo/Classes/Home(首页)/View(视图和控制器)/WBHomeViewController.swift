@@ -8,8 +8,13 @@
 
 import UIKit
 
+// 定义当前文件下全局常量, cell 的重用标识符
+fileprivate let cellId = "cellId"
+
 class WBHomeViewController: WBBaseViewController {
 
+    fileprivate lazy var statusList = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,9 +29,40 @@ class WBHomeViewController: WBBaseViewController {
         navigationController?.pushViewController(vc, animated: true)
     
     }
+    
+    // 加载数据
+    override func loadData() {
+        for i in 0..<15 {
+            
+            statusList.insert(i.description, at: 0)
+        }
+    }
+    
 
 }
 
+// MARK: - 实现数据源方法
+extension WBHomeViewController {
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return statusList.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        // 取出 cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath)
+        // 设置 cell
+        cell.textLabel?.text = statusList[indexPath.row]
+        
+        // 返回 cell
+        return cell
+    }
+}
+
+
+
+// MARK: - 设置界面
 extension WBHomeViewController{
     
     override func setupUI() {
@@ -41,5 +77,9 @@ extension WBHomeViewController{
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: btn)
         // ---> 最终优化如下
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
+        
+        // 注册原型 cell
+        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
+        
     }
 }

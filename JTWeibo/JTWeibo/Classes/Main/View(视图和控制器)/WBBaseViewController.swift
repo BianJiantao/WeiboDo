@@ -24,8 +24,15 @@ class WBBaseViewController: UIViewController {
 
         setupUI()
         
+        loadData()
+        
     }
 
+    
+    /// 加载数据,交由子类实现
+    func loadData(){
+        
+    }
     
     /// 重写 title 的 didSet , 设置导航条 title
     override var title: String?{
@@ -44,6 +51,8 @@ extension WBBaseViewController{
     func setupUI(){
     
         view.backgroundColor = UIColor.random()
+        // 禁止自动调整内容缩进
+        automaticallyAdjustsScrollViewInsets = false
         setupNavBar()
         setupTableView()
     }
@@ -58,7 +67,11 @@ extension WBBaseViewController{
         // 设置数据源/代理
         tableView?.dataSource = self
         tableView?.delegate = self
-        
+        // 设置视图缩进, top 缩进导航条的高度, bottom 缩进 tabbar 的高度(默认是49)
+        tableView?.contentInset = UIEdgeInsets(top: navBar.bounds.height,
+                                               left: 0,
+                                               bottom: tabBarController?.tabBar.bounds.height ?? 49,
+                                               right: 0)
     }
     
     /// 设置导航条
