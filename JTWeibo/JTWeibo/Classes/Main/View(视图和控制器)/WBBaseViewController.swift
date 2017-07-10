@@ -55,6 +55,10 @@ extension WBBaseViewController{
         tableView = UITableView(frame: view.bounds, style: .plain)
 //        view.addSubview(tableView!) // 要修改代码顺序  setupNavBar , setupTableView , 用 insert
         view.insertSubview(tableView!, belowSubview: navBar)
+        // 设置数据源/代理
+        tableView?.dataSource = self
+        tableView?.delegate = self
+        
     }
     
     /// 设置导航条
@@ -71,3 +75,17 @@ extension WBBaseViewController{
     }
     
 }
+
+// MARK: - UITableViewDataSource,UITableViewDelegate
+extension WBBaseViewController : UITableViewDataSource,UITableViewDelegate {
+    // 基类只是准备这些方法,具体内容由子类实现
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 0
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+}
+
