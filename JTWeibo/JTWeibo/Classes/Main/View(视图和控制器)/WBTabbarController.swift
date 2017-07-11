@@ -65,10 +65,21 @@ extension WBTabbarController{
     /// 设置子控制器
     fileprivate func setupChildControllers() {
         
-        // 从 bundle加载界面配置文件 json
-       guard let path = Bundle.main.path(forResource: "JTWeibo.json", ofType: nil),
-                let data = NSData(contentsOfFile: path),
-                let array = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [[String:Any]]
+        // 判断加载沙盒 json 还是 bundle 中 json
+        // 获取沙盒 json 路径
+        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+        let jsonPath = (docDir as NSString).appendingPathComponent("JTWeibo.json")
+        
+        // 加载数据
+        var data = NSData(contentsOfFile: jsonPath)
+        if data == nil { // 沙盒中没有加载到 json 数据 , 加载 bundle中 json
+            
+            let path = Bundle.main.path(forResource: "JTWeibo.json", ofType: nil)
+            data = NSData(contentsOfFile: path!)
+
+        }
+        
+       guard let array = try? JSONSerialization.jsonObject(with: data as! Data, options: []) as? [[String:Any]]
                 else{
             return
         }

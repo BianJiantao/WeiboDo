@@ -31,17 +31,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 extension AppDelegate {
     
+    /// 模拟网络加载 json 界面配置文件
     fileprivate func loadAppInfo(){
         
-        let url = Bundle.main.url(forResource: "JTWeibo.json", withExtension: nil)
-        let data = NSData(contentsOf: url!)
+        // 模拟异步
+        DispatchQueue.global().async{
+            
+            let url = Bundle.main.url(forResource: "JTWeibo.json", withExtension: nil)
+            let data = NSData(contentsOf: url!)
+            
+            let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+            let jsonPath = (docDir as NSString).appendingPathComponent("JTWeibo.json")
+            // 写入沙盒,供程序下次启动时使用
+            data?.write(toFile: jsonPath, atomically: true)
+            
+            print("应用程序网络加载json完毕\(jsonPath)")
+        }
         
-        let docDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
-        let jsonPath = (docDir as NSString).appendingPathComponent("JTWeibo.json")
-        
-        data?.write(toFile: jsonPath, atomically: true)
-        
-        print("应用程序网络加载json完毕\(jsonPath)")
         
         
     }
