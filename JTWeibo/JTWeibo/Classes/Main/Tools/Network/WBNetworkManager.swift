@@ -20,13 +20,41 @@ class WBNetworkManager: AFHTTPSessionManager {
     // 第一次访问时执行闭包,并且将结果用 shared常量 保存
     static let shared = WBNetworkManager()
     
+    // 访问令牌
+    var accessToken:String? = "2.00WKSdoG6a1eKB389a618b50dvgDPB"
+    
+    
+    func tokenRequest(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
+        
+        // 判断令牌是否为 nil
+        guard let token = accessToken else {
+            
+            print("没有 token!需要登录")
+            completion(nil,false)
+            return
+        }
+        
+        // 判断参数字典是否存在
+        var params = parameters
+        if parameters == nil { // 不存在,创建
+            params = [String:AnyObject]()
+        }
+        
+        // 此处params一定有值,强行解包
+        params!["access_token"] = token
+        
+        request(URLString: URLString, parameters: params, completion: completion)
+        
+    }
+    
+    
     /// 使用一个函数封装AFN 的的GET /POST请求
     ///
     /// - parameter method:     GET /POST
     /// - parameter URLString:  URLString
     /// - parameter parameters: 参数字典
     /// - parameter completion: 请求的回调代码
-    func request(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any],completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
+    func request(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
         
         // 成功的回调
         let success = { (task:URLSessionTask , json:Any?)->() in
