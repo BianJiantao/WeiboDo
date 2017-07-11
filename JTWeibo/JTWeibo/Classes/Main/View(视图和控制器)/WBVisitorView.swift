@@ -11,6 +11,22 @@ import UIKit
 class WBVisitorView: UIView {
 
     
+    // 注册按钮
+     lazy var registerButton:UIButton = UIButton.textButton(
+        "注册",
+        fontSize: 16,
+        normalColor: UIColor.orange,
+        highlightedColor:UIColor.black,
+        backgroundImageName:"common_button_white_disable")
+    
+    // 登录按钮
+     lazy var loginButton:UIButton = UIButton.textButton(
+        "登录",
+        fontSize: 16,
+        normalColor: UIColor.darkGray,
+        highlightedColor:UIColor.black,
+        backgroundImageName:"common_button_white_disable")
+    
     // 访客视图信息字典 [imageName / message ]
     // 如果是首页 imageName = "" ,因为默认的就是首页信息
     var visitorInfo : [String:String]?{
@@ -81,25 +97,11 @@ class WBVisitorView: UIView {
                                     text: "关注一些人,回这里看看有什么惊喜关注一些人,回这里看看有什么惊喜",
                                     fontSize: 14,
                                     color: UIColor.darkGray)
-    // 注册按钮
-    fileprivate lazy var registerButton:UIButton = UIButton.textButton(
-                                                   "注册",
-                                                   fontSize: 16,
-                                                   normalColor: UIColor.orange,
-                                                   highlightedColor:UIColor.black,
-                                                   backgroundImageName:"common_button_white_disable")
-    
-    // 登录按钮
-    fileprivate lazy var loginButton:UIButton = UIButton.textButton(
-                                                    "登录",
-                                                    fontSize: 16,
-                                                    normalColor: UIColor.darkGray,
-                                                    highlightedColor:UIColor.black,
-                                                    backgroundImageName:"common_button_white_disable")
     
     
     
 }
+
 
 
 // MARK: - 设置界面

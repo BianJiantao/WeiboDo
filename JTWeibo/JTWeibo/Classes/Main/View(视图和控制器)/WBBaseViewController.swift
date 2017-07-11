@@ -54,7 +54,17 @@ class WBBaseViewController: UIViewController {
     }
 
 }
-
+// MARK: - 按钮监听方法
+extension WBBaseViewController {
+    
+    @objc func loginButtonClick(){
+        print(#function)
+    }
+    @objc func registerButtonClick(){
+        
+        print(#function)
+    }
+}
 
 // MARK: - 设置界面
 extension WBBaseViewController{
@@ -100,6 +110,8 @@ extension WBBaseViewController{
         let visitorView = WBVisitorView(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBar)
         visitorView.visitorInfo = visitorViewInfo
+        visitorView.loginButton.addTarget(self, action: #selector(loginButtonClick), for: .touchUpInside)
+        visitorView.registerButton.addTarget(self, action: #selector(registerButtonClick), for: .touchUpInside)
         
     }
     
