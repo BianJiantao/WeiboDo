@@ -34,20 +34,23 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         // 用网络工具加载微博数据
-        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
-        let params = ["access_token":"2.00WKSdoG6a1eKB389a618b50dvgDPB"]
-        
-//        WBNetworkManager.shared.get(urlStr, parameters: params, progress: nil, success: { (_, json) in
-//            print(json)
-//            }) { (_, error) in
-//                print("网络请求失败\(error)")
-//        }
-        
-        WBNetworkManager.shared.request(URLString: urlStr, parameters: params) { (json, isSuccess) in
-            
-            print(json)
-            
+        WBNetworkManager.shared.statusList { (list, isSuccess) in
+            print(list)
         }
+//        let urlStr = "https://api.weibo.com/2/statuses/home_timeline.json"
+//        let params = ["access_token":"2.00WKSdoG6a1eKB389a618b50dvgDPB"]
+//        
+////        WBNetworkManager.shared.get(urlStr, parameters: params, progress: nil, success: { (_, json) in
+////            print(json)
+////            }) { (_, error) in
+////                print("网络请求失败\(error)")
+////        }
+//        
+//        WBNetworkManager.shared.request(URLString: urlStr, parameters: params) { (json, isSuccess) in
+//            
+//            print(json)
+//            
+//        }
         
         
         

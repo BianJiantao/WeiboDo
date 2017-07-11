@@ -4,7 +4,7 @@
 //
 //  Created by BJT on 17/7/11.
 //  Copyright © 2017年 BJT. All rights reserved.
-// 网络管理工具
+// 网络管理工具(不局限于此项目,通用的)
 
 import UIKit
 import AFNetworking
