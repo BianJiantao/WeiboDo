@@ -103,6 +103,18 @@ extension WBTabbarController{
         ]
         // 测试数据格式是否在正确, 转换成 plist 查看
 //        (array as NSArray).write(toFile: "/Users/bjt/Desktop/JTWeibo.plist", atomically: true)
+        // 数组 -> json 序列化
+        //  Call can throw, but it is not marked with 'try' and the error is not handled
+//        do{
+        
+            let data = try! JSONSerialization.data(withJSONObject: array, options: [.prettyPrinted])
+            (data as NSData).write(toFile: "/Users/bjt/Desktop/JTWeibo.json", atomically: true)
+        
+//        }catch{
+//            
+//            print("json error : \(error.localizedDescription)")
+//        }
+        
         
         var arrayM = [UIViewController]()
         for dict in array {

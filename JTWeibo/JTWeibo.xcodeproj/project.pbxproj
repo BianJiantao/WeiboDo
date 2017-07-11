@@ -32,6 +32,7 @@
 		6C23179B1F12535E00EB3193 /* UIBarButtonItem+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23179A1F12535E00EB3193 /* UIBarButtonItem+Extension.swift */; };
 		6C23179E1F12597700EB3193 /* UIScreen+JTAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C23179D1F12597700EB3193 /* UIScreen+JTAddition.m */; };
 		6C2317A01F136DE400EB3193 /* WBVisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C23179F1F136DE400EB3193 /* WBVisitorView.swift */; };
+		6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */ = {isa = PBXBuildFile; fileRef = 6C2317A11F14634100EB3193 /* JTWeibo.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		6C23179C1F12597700EB3193 /* UIScreen+JTAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScreen+JTAddition.h"; sourceTree = "<group>"; };
 		6C23179D1F12597700EB3193 /* UIScreen+JTAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScreen+JTAddition.m"; sourceTree = "<group>"; };
 		6C23179F1F136DE400EB3193 /* WBVisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBVisitorView.swift; sourceTree = "<group>"; };
+		6C2317A11F14634100EB3193 /* JTWeibo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = JTWeibo.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 				6C23174B1F11D07D00EB3193 /* Classes */,
 				6C2317241F11CBF600EB3193 /* Assets.xcassets */,
 				6C23177C1F120E9D00EB3193 /* Weibo-bridge.h */,
+				6C2317A11F14634100EB3193 /* JTWeibo.json */,
 				6C2317291F11CBF600EB3193 /* Info.plist */,
 			);
 			path = JTWeibo;
@@ -439,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */,
 				6C2317251F11CBF600EB3193 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
