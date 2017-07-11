@@ -28,8 +28,9 @@ class WBTestViewController: WBBaseViewController {
 
 extension WBTestViewController{
     
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+    
+        super.setupTableView()
         // -> 系统自带的没有高亮
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "下一个", style: .plain, target: self, action: #selector(showNext))
         // -> 代码多处用到,进行抽取

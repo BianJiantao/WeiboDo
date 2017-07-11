@@ -88,8 +88,9 @@ extension WBHomeViewController {
 // MARK: - 设置界面
 extension WBHomeViewController{
     
-    override func setupUI() {
-        super.setupUI()
+    override func setupTableView() {
+
+        super.setupTableView()
         
         // -> 系统自带的没有高亮
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "好友", style: .plain, target: self, action: #selector(showFriends))

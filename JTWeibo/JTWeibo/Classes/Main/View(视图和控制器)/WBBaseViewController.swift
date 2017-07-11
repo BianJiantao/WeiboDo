@@ -69,7 +69,7 @@ extension WBBaseViewController {
 // MARK: - 设置界面
 extension WBBaseViewController{
     
-    func setupUI(){
+    fileprivate func setupUI(){
     
         view.backgroundColor = UIColor.random()
         // 禁止自动调整ScrollView内容缩进
@@ -80,7 +80,7 @@ extension WBBaseViewController{
     
     
     /// 设置表格视图
-    private func setupTableView(){
+     func setupTableView(){
         
         tableView = UITableView(frame: view.bounds, style: .plain)
 //        view.addSubview(tableView!) // 要修改代码顺序  setupNavBar , setupTableView , 用 insert
@@ -109,10 +109,14 @@ extension WBBaseViewController{
         
         let visitorView = WBVisitorView(frame: view.bounds)
         view.insertSubview(visitorView, belowSubview: navBar)
+        // 设置访客视图的界面配置信息
         visitorView.visitorInfo = visitorViewInfo
+        // 监听访客视图按钮点击
         visitorView.loginButton.addTarget(self, action: #selector(loginButtonClick), for: .touchUpInside)
         visitorView.registerButton.addTarget(self, action: #selector(registerButtonClick), for: .touchUpInside)
-        
+        // 设置访客视图导航栏按钮
+        navItem.leftBarButtonItem = UIBarButtonItem(title: "注册", style: .plain, target: self, action: #selector(registerButtonClick))
+        navItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: .plain, target: self, action: #selector(loginButtonClick))
     }
     
     
