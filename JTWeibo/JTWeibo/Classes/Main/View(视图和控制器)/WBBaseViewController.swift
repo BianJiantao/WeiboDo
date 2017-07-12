@@ -14,7 +14,7 @@ class WBBaseViewController: UIViewController {
     var visitorViewInfo:[String:String]?
     
     // 登录标识符
-    var userLogon = false
+    var userLogon = true
     // 表格视图
     var tableView:UITableView?
     // 下拉刷新控件

@@ -24,8 +24,8 @@ class WBStatusListViewModel {
         
         WBNetworkManager.shared.statusList { (list, isSuccess) in
             
-            // 字典抓 模型
-            guard let array = NSArray.yy_modelArray(with: WBStatus.self, json: list) as? [WBStatus] else {
+            // 字典转模型  (注意 list 是可选项 , 要解包)
+            guard let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else {
                 
                 completion(isSuccess)
                 return
