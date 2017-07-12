@@ -4,7 +4,7 @@
 //
 //  Created by BJT on 17/7/11.
 //  Copyright © 2017年 BJT. All rights reserved.
-// 网络管理工具(不局限于此项目,通用的)
+// 网络管理工具
 
 import UIKit
 import AFNetworking
@@ -46,7 +46,7 @@ class WBNetworkManager: AFHTTPSessionManager {
         params!["access_token"] = token
         
         request(URLString: URLString, parameters: params, completion: completion)
-        
+    
     }
     
     
@@ -84,10 +84,9 @@ class WBNetworkManager: AFHTTPSessionManager {
         }else{
             
             post(URLString, parameters: parameters, progress: nil, success: success, failure: failure)
-        }
-        
-    
+        }    
    
+       
     }
     
     

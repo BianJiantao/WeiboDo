@@ -4,7 +4,7 @@
 //
 //  Created by BJT on 17/7/11.
 //  Copyright © 2017年 BJT. All rights reserved.
-// 封装微博的网络请求方法(适用于本项目)
+// 封装微博的网络请求方法
 
 import Foundation
 
@@ -24,6 +24,7 @@ extension WBNetworkManager {
             completion(result,isSuccess)
             
         }
+        
         
     }
     
