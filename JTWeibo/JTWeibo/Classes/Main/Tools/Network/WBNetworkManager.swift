@@ -31,6 +31,8 @@ class WBNetworkManager: AFHTTPSessionManager {
             
             print("没有 token!需要登录")
             completion(nil,false)
+            // FIXME: 发出通知,登录
+            
             return
         }
         
@@ -63,6 +65,15 @@ class WBNetworkManager: AFHTTPSessionManager {
         }
         // 失败的回调
         let failure = {(task:URLSessionTask? , error:Error)->() in
+            
+            // 针对 403 错误,处理用户 token 过期
+            if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
+                print("token过期")
+                // FIXME: 发出通知,重新登录
+                
+            }
+            
+            
             print("网络请求错误\(error)")
             completion(nil, false)
         }
