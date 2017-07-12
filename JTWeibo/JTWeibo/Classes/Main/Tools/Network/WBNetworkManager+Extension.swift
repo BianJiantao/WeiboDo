@@ -34,6 +34,9 @@ extension WBNetworkManager {
     }
     
     
+    /// 获取微博未读数
+    ///
+    /// - parameter completion: 完成的回调 (未读数)
     func unreadCount(completion:@escaping (_ count:Int)->()){
         
         guard let uid = uid else {

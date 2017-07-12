@@ -10,16 +10,21 @@ import UIKit
 
 class WBTabbarController: UITabBarController {
 
+    // 定时器
+    fileprivate var timer:Timer?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupChildControllers()
         setupComposeButton()
-        
-        WBNetworkManager.shared.unreadCount { (count) in
-            print("有\(count)条未读微博")
-        }
+        setupTimer()
 
+    }
+    
+    deinit {
+        // 销毁定时器
+        timer?.invalidate()
     }
     
     // 设置设备方向
@@ -41,6 +46,30 @@ class WBTabbarController: UITabBarController {
     fileprivate lazy var composeButton : UIButton = UIButton.imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
 }
+
+
+
+// MARK: - 定时器方法
+extension WBTabbarController {
+    
+    /// 定时器初始化
+    fileprivate func setupTimer(){
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    /// 定时器监听方法
+    @objc private func updateTimer(){
+    
+        WBNetworkManager.shared.unreadCount { (count) in
+            print("有\(count)条未读微博")
+            self.tabBar.items?[0].badgeValue = (count > 0) ? "\(count)" : nil
+            
+        }
+        
+    }
+    
+}
+
 
 // MARK: - 设置界面
 extension WBTabbarController{
