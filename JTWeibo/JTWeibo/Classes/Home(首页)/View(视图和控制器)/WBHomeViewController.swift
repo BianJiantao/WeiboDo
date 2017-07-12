@@ -35,10 +35,12 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         
-        listViewModel.loadStatus(pullupRefresh: self.isPullupRefresh) { (isSuccess) in
+        listViewModel.loadStatus(pullupRefresh: self.isPullupRefresh) { (isSuccess,shouldRefresh) in
             
-            // 刷新表格
-            self.tableView?.reloadData()
+            if shouldRefresh { // 需要刷新微博表格数据
+                // 刷新表格
+                self.tableView?.reloadData()
+            }
             // 重置上拉刷新标记
             self.isPullupRefresh = false
             
