@@ -7,14 +7,29 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // #available 检测设备版本
+        if #available(iOS 10, *) { // iOS 10.0 以后
+            
+            UNUserNotificationCenter.current().requestAuthorization(options: [.badge,.carPlay,.alert,.sound], completionHandler: { (success, error) in
+                print("授权" + (success ? "成功":"失败"))
+            })
+            
+        } else { // iOS 10.0 以前
+            
+            let notificationSettings = UIUserNotificationSettings(types: [.alert,.badge,.sound], categories: nil)
+            application.registerUserNotificationSettings(notificationSettings)
+        }
         
         
         window = UIWindow()

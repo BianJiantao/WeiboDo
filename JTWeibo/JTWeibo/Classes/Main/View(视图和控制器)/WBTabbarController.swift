@@ -62,8 +62,9 @@ extension WBTabbarController {
     
         WBNetworkManager.shared.unreadCount { (count) in
             print("有\(count)条未读微博")
-            self.tabBar.items?[0].badgeValue = (count > 0) ? "\(count)" : nil
             
+            self.tabBar.items?[0].badgeValue = (count > 0) ? "\(count)" : nil
+            UIApplication.shared.applicationIconBadgeNumber = count + 1
         }
         
     }
