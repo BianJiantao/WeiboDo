@@ -22,7 +22,8 @@ class WBNetworkManager: AFHTTPSessionManager {
     
     // 访问令牌
     var accessToken:String? = "2.00WKSdoG6a1eKB389a618b50dvgDPB"
-    
+    // uid
+    var uid : String? = "6244978428"
     
     func tokenRequest(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
         

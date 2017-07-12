@@ -15,6 +15,10 @@ class WBTabbarController: UITabBarController {
 
         setupChildControllers()
         setupComposeButton()
+        
+        WBNetworkManager.shared.unreadCount { (count) in
+            print("有\(count)条未读微博")
+        }
 
     }
     

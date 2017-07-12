@@ -20,7 +20,7 @@ class WBStatusListViewModel {
     // 上拉刷新尝试次数
     var pullupTryTimes = 0
     
-    /// 加载微博数据
+    /// 加载微博数据 
     ///
     /// - parameter pullupRefresh: 是否上拉刷新
     /// - parameter completion:    完成回调(是否成功,是否刷新表格)

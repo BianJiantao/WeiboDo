@@ -33,4 +33,23 @@ extension WBNetworkManager {
         
     }
     
+    
+    func unreadCount(completion:@escaping (_ count:Int)->()){
+        
+        guard let uid = uid else {
+            return
+        }
+        
+        let urlStr = "https://rm.api.weibo.com/2/remind/unread_count.json"
+        let params = ["uid":uid]
+        
+        tokenRequest(URLString: urlStr, parameters: params) { (json, isSuccess) in
+            
+            let dict = json as? [String:AnyObject]
+            let count = dict?["status"] as? Int
+            completion(count ?? 0)
+            
+        }
+    }
+    
 }
