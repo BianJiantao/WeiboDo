@@ -19,7 +19,8 @@ class WBBaseViewController: UIViewController {
     var tableView:UITableView?
     // 下拉刷新控件
     var refreshControl:UIRefreshControl?
-    var isPullRefresh:Bool = false
+    // 是否上拉刷新
+    var isPullupRefresh:Bool = false
     
     
     /// 自定义导航条
@@ -161,9 +162,9 @@ extension WBBaseViewController : UITableViewDataSource,UITableViewDelegate {
             return
         }
         
-        if row == count-1 , !isPullRefresh { // 将要显示的行是最后一个section的最后一行,且没有在上拉刷新
+        if row == count-1 , !isPullupRefresh { // 将要显示的行是最后一个section的最后一行,且没有在上拉刷新
             print("上拉刷新")
-            isPullRefresh = true
+            isPullupRefresh = true
             
             loadData()
         }

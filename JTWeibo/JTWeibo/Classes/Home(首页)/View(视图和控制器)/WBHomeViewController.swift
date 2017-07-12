@@ -13,6 +13,7 @@ fileprivate let cellId = "cellId"
 
 class WBHomeViewController: WBBaseViewController {
 
+    // 微博列表视图模型,管理微博数据
     fileprivate lazy var listViewModel = WBStatusListViewModel()
     
     override func viewDidLoad() {
@@ -34,12 +35,12 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         
-        listViewModel.loadStatus { (isSuccess) in
+        listViewModel.loadStatus(pullupRefresh: self.isPullupRefresh) { (isSuccess) in
             
             // 刷新表格
             self.tableView?.reloadData()
             // 重置上拉刷新标记
-            self.isPullRefresh = false
+            self.isPullupRefresh = false
             
             // 结束刷新
             self.refreshControl?.endRefreshing()

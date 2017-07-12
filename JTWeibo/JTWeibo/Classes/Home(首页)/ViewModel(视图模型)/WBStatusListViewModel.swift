@@ -19,10 +19,16 @@ class WBStatusListViewModel {
     
     /// 加载微博数据
     ///
-    /// - parameter completion: 完成回调 
-    func loadStatus(completion:@escaping (_ isSuccess:Bool)->()){
+    /// - parameter pullupRefresh: 是否上拉刷新
+    /// - parameter completion:    完成回调
+    func loadStatus(pullupRefresh:Bool,completion:@escaping (_ isSuccess:Bool)->()){
         
-        WBNetworkManager.shared.statusList { (list, isSuccess) in
+        let since_id =  pullupRefresh ? 0 : (statusList.first?.id ?? 0)
+        
+        let max_id =  (!pullupRefresh) ? 0 : (statusList.last?.id ?? 0)
+        
+        
+        WBNetworkManager.shared.statusList(since_id:since_id, max_id: max_id) { (list, isSuccess) in
             
             // 字典转模型  (注意 list 是可选项 , 要解包)
             guard let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else {
@@ -32,7 +38,14 @@ class WBStatusListViewModel {
             }
             
             // 拼接数据
-            self.statusList += array
+            if pullupRefresh { // 上拉刷新
+                
+                self.statusList += array
+            }else{ // 下拉刷新
+                
+                self.statusList = array + self.statusList
+            }
+            
             // 完成回调
             completion(isSuccess)
             
