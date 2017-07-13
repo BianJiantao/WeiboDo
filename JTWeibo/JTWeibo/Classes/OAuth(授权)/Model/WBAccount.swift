@@ -8,6 +8,9 @@
 
 import UIKit
 
+/// 账户文件名
+private let accountFile: NSString = "account.json"
+
 class WBAccount: NSObject {
 
     
@@ -31,6 +34,23 @@ class WBAccount: NSObject {
         return yy_modelDescription()
     }
     
+    
+    override init() {
+        super.init()
+        // 从沙盒加载账户文件  -->字典 , 失败则直接返回
+        guard let path = accountFile.appendDocumentDir(),
+            let data = NSData(contentsOfFile: path) ,
+            let dict = try? JSONSerialization.jsonObject(with: data as Data, options: []) as? [String:AnyObject]else {
+                return
+        }
+        
+        // 利用字典给账户模型的属性设值
+        yy_modelSet(with: dict ?? [:])
+        
+        
+    }
+    
+    
     /// 保存账户到沙盒
     func saveAccount(){
         
@@ -42,7 +62,7 @@ class WBAccount: NSObject {
         
         // 字典序列化
        guard let data = try? JSONSerialization.data(withJSONObject: dict, options: [.prettyPrinted]),
-        let filePath = ("account.json" as NSString).appendDocumentDir() else{
+        let filePath = accountFile.appendDocumentDir() else{
             return
         }
         
