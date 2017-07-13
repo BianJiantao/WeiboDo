@@ -39,7 +39,7 @@ extension WBNetworkManager {
     /// - parameter completion: 完成的回调 (未读数)
     func unreadCount(completion:@escaping (_ count:Int)->()){
         
-        guard let uid = uid else {
+        guard let uid = account.uid else {
             return
         }
         
@@ -56,3 +56,28 @@ extension WBNetworkManager {
     }
     
 }
+
+// MARK: - OAuth 相关方法
+extension WBNetworkManager {
+    
+    /// 用授权码 code 换取 AccessToken
+    ///
+    /// - parameter code:  授权码
+    func loadAccessToken(code:String) {
+        
+        let urlStr = "https://api.weibo.com/oauth2/access_token"
+        let params = [
+            "client_id":WBAppKey,
+            "client_secret":WBAppSecret,
+            "grant_type":"authorization_code",
+            "code":code,
+            "redirect_uri":WBAppRedirectUri]
+        
+        request(method: .POST, URLString: urlStr, parameters: params) { (json, isSuccess) in
+            print(json)
+        }
+        
+    }
+    
+}
+

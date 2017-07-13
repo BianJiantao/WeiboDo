@@ -38,7 +38,8 @@
 		6C2317A91F15B36500EB3193 /* WBStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317A81F15B36500EB3193 /* WBStatus.swift */; };
 		6C2317AB1F15B87D00EB3193 /* WBStatusListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317AA1F15B87D00EB3193 /* WBStatusListViewModel.swift */; };
 		6C2317AD1F17131600EB3193 /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317AC1F17131600EB3193 /* WBCommon.swift */; };
-		6C2317B01F17177D00EB3193 /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317AF1F17177D00EB3193 /* WBOAuthViewController.swift */; };
+		6C2317B41F178F0800EB3193 /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B21F178F0800EB3193 /* WBOAuthViewController.swift */; };
+		6C2317B61F178F2E00EB3193 /* WBAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B51F178F2E00EB3193 /* WBAccount.swift */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -110,7 +111,8 @@
 		6C2317A81F15B36500EB3193 /* WBStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatus.swift; sourceTree = "<group>"; };
 		6C2317AA1F15B87D00EB3193 /* WBStatusListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusListViewModel.swift; sourceTree = "<group>"; };
 		6C2317AC1F17131600EB3193 /* WBCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
-		6C2317AF1F17177D00EB3193 /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
+		6C2317B21F178F0800EB3193 /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
+		6C2317B51F178F2E00EB3193 /* WBAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBAccount.swift; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -379,9 +381,26 @@
 		6C2317AE1F17175D00EB3193 /* OAuth(授权) */ = {
 			isa = PBXGroup;
 			children = (
-				6C2317AF1F17177D00EB3193 /* WBOAuthViewController.swift */,
+				6C2317B11F178F0800EB3193 /* Controller */,
+				6C2317B31F178F0800EB3193 /* Model */,
 			);
 			path = "OAuth(授权)";
+			sourceTree = "<group>";
+		};
+		6C2317B11F178F0800EB3193 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6C2317B21F178F0800EB3193 /* WBOAuthViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		6C2317B31F178F0800EB3193 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6C2317B51F178F2E00EB3193 /* WBAccount.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		AA9EBDF3D7938C044151C47E /* Frameworks */ = {
@@ -580,7 +599,7 @@
 				6C2317791F120AD700EB3193 /* UIView+JTAddition.m in Sources */,
 				6C2317871F12131F00EB3193 /* WBMessageViewController.swift in Sources */,
 				6C2317A01F136DE400EB3193 /* WBVisitorView.swift in Sources */,
-				6C2317B01F17177D00EB3193 /* WBOAuthViewController.swift in Sources */,
+				6C2317B41F178F0800EB3193 /* WBOAuthViewController.swift in Sources */,
 				6C2317A51F14BBAB00EB3193 /* WBNetworkManager.swift in Sources */,
 				6C23175C1F11D16C00EB3193 /* WBBaseViewController.swift in Sources */,
 				6C2317631F11E41400EB3193 /* Bundle+Extension.swift in Sources */,
@@ -588,6 +607,7 @@
 				6C2317991F124A0C00EB3193 /* WBTestViewController.swift in Sources */,
 				6C2317941F121E9400EB3193 /* UIImage+JTAddition.m in Sources */,
 				6C2317A91F15B36500EB3193 /* WBStatus.swift in Sources */,
+				6C2317B61F178F2E00EB3193 /* WBAccount.swift in Sources */,
 				6C23177A1F120AD700EB3193 /* UIViewController+JTAddition.m in Sources */,
 				6C2317A71F151BF400EB3193 /* WBNetworkManager+Extension.swift in Sources */,
 				6C2317911F121CA500EB3193 /* UIButton+JTAddition.m in Sources */,

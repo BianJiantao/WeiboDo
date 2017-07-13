@@ -18,22 +18,33 @@ class WBNetworkManager: AFHTTPSessionManager {
 
     // 单例  --- 静态区/常量 , 闭包
     // 第一次访问时执行闭包,并且将结果用 shared常量 保存
-    static let shared = WBNetworkManager()
+    static let shared : WBNetworkManager = {
+        
+        let instance = WBNetworkManager()
+        // 设置响应反序列支持的数据类型
+        instance.responseSerializer.acceptableContentTypes?.insert("text/plain")
+        
+        
+        return instance
+    }()
     
-    // 访问令牌
-    var accessToken:String? //= "2.00WKSdoG6a1eKB389a618b50dvgDPB"
-    // uid
-    var uid : String? = "6244978428"
+//    // 访问令牌
+//    var accessToken:String? //= "2.00WKSdoG6a1eKB389a618b50dvgDPB"
+//    // uid
+//    var uid : String? = "6244978428"
+    
+    
+    lazy var account = WBAccount()
     
     // 登录标识符
     var userLogon :Bool{
-        return (accessToken != nil)
+        return (account.access_token != nil)
     }
     
     func tokenRequest(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
         
         // 判断令牌是否为 nil
-        guard let token = accessToken else {
+        guard let token = account.access_token else {
             
             print("没有 token!需要登录")
             completion(nil,false)
