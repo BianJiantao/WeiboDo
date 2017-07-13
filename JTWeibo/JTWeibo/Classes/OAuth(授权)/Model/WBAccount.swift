@@ -18,7 +18,14 @@ class WBAccount: NSObject {
     var uid: String?
     
     /// access_token 的生命周期 开发者5年 使用者3天, 单位是秒数
-    var expires_in: TimeInterval = 0
+    var expires_in: TimeInterval = 0{
+        didSet{
+            // 秒数转成日期
+            expiresDate = Date(timeIntervalSinceNow: expires_in)
+        }
+    }
+    /// 过期日期
+    var expiresDate:Date?
     
     override var description: String {
         return yy_modelDescription()
