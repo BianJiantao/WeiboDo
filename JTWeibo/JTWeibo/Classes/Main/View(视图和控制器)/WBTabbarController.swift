@@ -44,6 +44,11 @@ class WBTabbarController: UITabBarController {
     @objc fileprivate func userShouldLogin(){
     
         print(#function)
+        
+        let nav = UINavigationController(rootViewController: WBOAuthViewController())
+        
+        present(nav, animated: true, completion: nil)
+        
     }
     
     
