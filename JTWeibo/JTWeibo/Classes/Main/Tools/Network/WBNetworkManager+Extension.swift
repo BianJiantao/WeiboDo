@@ -75,6 +75,11 @@ extension WBNetworkManager {
         
         request(method: .POST, URLString: urlStr, parameters: params) { (json, isSuccess) in
             print(json)
+            
+            // 字典转模型
+            self.account.yy_modelSet(with: (json as? [String:AnyObject]) ?? [:])
+            print(self.account)
+            
         }
         
     }
