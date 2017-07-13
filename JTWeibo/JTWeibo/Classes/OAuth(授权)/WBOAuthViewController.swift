@@ -7,6 +7,7 @@
 // OAuth授权登录页面控制器
 
 import UIKit
+import SVProgressHUD
 
 class WBOAuthViewController: UIViewController {
 
@@ -14,8 +15,13 @@ class WBOAuthViewController: UIViewController {
     
     override func loadView() {
         view = webView
-        webView.delegate = self
+        
         view.backgroundColor = UIColor.white
+        // 禁用 webView 滚动
+        webView.scrollView.isScrollEnabled = false
+        
+        // 设置代理
+        webView.delegate = self
         
         navigationItem.title = "登录微博"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", fontSize: 16, target: self, action: #selector(back), isBack: true)
@@ -50,6 +56,8 @@ class WBOAuthViewController: UIViewController {
     
     // 返回按钮点击
     @objc fileprivate func back(){
+        // 移除加载指示
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
 
@@ -59,6 +67,7 @@ class WBOAuthViewController: UIViewController {
 
 extension WBOAuthViewController:UIWebViewDelegate{
     
+    // 拦截请求
     func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
         if request.url?.absoluteString.hasPrefix(WBAppRedirectUri) == false { // 请求的 url 不包含回调地址
@@ -83,5 +92,17 @@ extension WBOAuthViewController:UIWebViewDelegate{
         
         return false
     }
+    
+    func webViewDidStartLoad(_ webView: UIWebView) {
+        // 显示加载指示
+        SVProgressHUD.show()
+    }
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        // 移除加载指示
+        SVProgressHUD.dismiss()
+    }
+    
+    
 }
 
