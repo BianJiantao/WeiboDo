@@ -21,12 +21,16 @@ class WBTabbarController: UITabBarController {
         setupTimer()
         
         delegate = self
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(userShouldLogin), name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
 
     }
     
     deinit {
         // 销毁定时器
         timer?.invalidate()
+        // 移除通知监听
+        NotificationCenter.default.removeObserver(self)
     }
     
     // 设置设备方向
@@ -36,6 +40,13 @@ class WBTabbarController: UITabBarController {
     
     
     // MARK: - 监听方法
+    // 用户登录通知
+    @objc fileprivate func userShouldLogin(){
+    
+        print(#function)
+    }
+    
+    
     /// 发微博
     // FIXME: 没有实现
      @objc fileprivate func composeStatus(){
@@ -82,7 +93,7 @@ extension WBTabbarController {
     
     /// 定时器初始化
     fileprivate func setupTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     /// 定时器监听方法

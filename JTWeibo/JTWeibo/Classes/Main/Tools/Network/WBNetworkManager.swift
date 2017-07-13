@@ -21,7 +21,7 @@ class WBNetworkManager: AFHTTPSessionManager {
     static let shared = WBNetworkManager()
     
     // 访问令牌
-    var accessToken:String? = "2.00WKSdoG6a1eKB389a618b50dvgDPB"
+    var accessToken:String? //= "2.00WKSdoG6a1eKB389a618b50dvgDPB"
     // uid
     var uid : String? = "6244978428"
     

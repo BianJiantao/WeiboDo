@@ -58,9 +58,13 @@ extension WBBaseViewController {
     
     @objc func loginButtonClick(){
         print(#function)
+        // 登录
+        // 发出用户登录通知
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
+        
     }
     @objc func registerButtonClick(){
-        
+        // 注册
         print(#function)
     }
 }
