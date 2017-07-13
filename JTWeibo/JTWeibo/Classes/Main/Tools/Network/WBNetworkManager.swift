@@ -25,6 +25,11 @@ class WBNetworkManager: AFHTTPSessionManager {
     // uid
     var uid : String? = "6244978428"
     
+    // 登录标识符
+    var userLogon :Bool{
+        return (accessToken != nil)
+    }
+    
     func tokenRequest(method:WBHTTPMethod = .GET,URLString: String, parameters:[String:Any]?,completion:@escaping (_ json:Any?,_ isSuccess:Bool)->()){
         
         // 判断令牌是否为 nil

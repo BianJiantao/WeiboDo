@@ -13,8 +13,6 @@ class WBBaseViewController: UIViewController {
     // 访客视图信息字典
     var visitorViewInfo:[String:String]?
     
-    // 登录标识符
-    var userLogon = true
     // 表格视图
     var tableView:UITableView?
     // 下拉刷新控件
@@ -35,7 +33,7 @@ class WBBaseViewController: UIViewController {
 
         setupUI()
         
-        loadData()
+        WBNetworkManager.shared.userLogon ? loadData() : ()
         
     }
 
@@ -76,7 +74,7 @@ extension WBBaseViewController{
         // 禁止自动调整ScrollView内容缩进
         automaticallyAdjustsScrollViewInsets = false
         setupNavBar()
-        userLogon ? setupTableView() : setupVisitorView()
+        WBNetworkManager.shared.userLogon ? setupTableView() : setupVisitorView()
     }
     
     

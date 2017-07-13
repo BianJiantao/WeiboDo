@@ -88,6 +88,9 @@ extension WBTabbarController {
     /// 定时器监听方法
     @objc private func updateTimer(){
     
+        if !WBNetworkManager.shared.userLogon {
+            return
+        }
         WBNetworkManager.shared.unreadCount { (count) in
             print("有\(count)条未读微博")
             
