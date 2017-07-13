@@ -31,7 +31,7 @@ class WBHomeViewController: WBBaseViewController {
     
     }
     
-    // 加载数据
+    /// 加载数据
     override func loadData() {
         
         

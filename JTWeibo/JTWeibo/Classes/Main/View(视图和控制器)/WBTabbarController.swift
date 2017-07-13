@@ -19,6 +19,8 @@ class WBTabbarController: UITabBarController {
         setupChildControllers()
         setupComposeButton()
         setupTimer()
+        
+        delegate = self
 
     }
     
@@ -47,6 +49,32 @@ class WBTabbarController: UITabBarController {
 
 }
 
+
+// MARK: - UITabBarControllerDelegate
+extension WBTabbarController:UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        
+        // 将要切换的控制器的索引
+        let idx = (childViewControllers as NSArray).index(of: viewController)
+        
+        if selectedIndex == 0 && idx == selectedIndex { // 当前是首页控制器,且将要切换的还是首页
+            
+            let nav = childViewControllers[0] as! WBNavigationController
+            let vc = nav.childViewControllers[0] as! WBHomeViewController
+            // tableView 滚动到顶部
+            vc.tableView?.setContentOffset(CGPoint(x: 0, y: -64), animated: true)
+            // 刷新数据 (延迟一秒, 以便 tableView 滚动顶部完成后再刷新数据 )
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: { 
+                
+                vc.loadData()
+            })
+        }
+        
+        // 点击加号按钮时,不切换
+        return !viewController.isMember(of: UIViewController.self)
+    }
+}
 
 
 // MARK: - 定时器方法
@@ -85,8 +113,9 @@ extension WBTabbarController{
         
         let count = CGFloat(childViewControllers.count)
         // TIPS :  -1 是为了 减小加号按钮的缩进, 使其宽度增大,盖住按钮之间的容错点,点击按钮时就不会穿帮了
-        let w = tabBar.bounds.width / count - 1
-        
+//        let w = tabBar.bounds.width / count -1
+        // UITabBarControllerDelegate 代理方法也可以解决上述问题,就不用考虑容错点的问题了
+        let w = tabBar.bounds.width / count
         composeButton.frame = tabBar.bounds.insetBy(dx: 2 * w , dy: 0)
         
         // 按钮监听方法
