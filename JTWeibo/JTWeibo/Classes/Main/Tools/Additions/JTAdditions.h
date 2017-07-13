@@ -11,3 +11,4 @@
 #import "NSArray+JTAddition.h"
 #import "NSObject+JTAddition.h"
 #import "NSAttributedString+JTAdditon.h"
+#import "NSString+JTPath.h"

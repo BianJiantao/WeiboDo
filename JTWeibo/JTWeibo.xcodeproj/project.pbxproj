@@ -40,6 +40,7 @@
 		6C2317AD1F17131600EB3193 /* WBCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317AC1F17131600EB3193 /* WBCommon.swift */; };
 		6C2317B41F178F0800EB3193 /* WBOAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B21F178F0800EB3193 /* WBOAuthViewController.swift */; };
 		6C2317B61F178F2E00EB3193 /* WBAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B51F178F2E00EB3193 /* WBAccount.swift */; };
+		6C2317B91F17A0C400EB3193 /* NSString+JTPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B81F17A0C400EB3193 /* NSString+JTPath.m */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -113,6 +114,8 @@
 		6C2317AC1F17131600EB3193 /* WBCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBCommon.swift; sourceTree = "<group>"; };
 		6C2317B21F178F0800EB3193 /* WBOAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBOAuthViewController.swift; sourceTree = "<group>"; };
 		6C2317B51F178F2E00EB3193 /* WBAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBAccount.swift; sourceTree = "<group>"; };
+		6C2317B71F17A0C400EB3193 /* NSString+JTPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JTPath.h"; sourceTree = "<group>"; };
+		6C2317B81F17A0C400EB3193 /* NSString+JTPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JTPath.m"; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -286,6 +289,8 @@
 			isa = PBXGroup;
 			children = (
 				6C2317651F120AD700EB3193 /* JTAdditions.h */,
+				6C2317B71F17A0C400EB3193 /* NSString+JTPath.h */,
+				6C2317B81F17A0C400EB3193 /* NSString+JTPath.m */,
 				6C2317661F120AD700EB3193 /* NSArray+JTAddition.h */,
 				6C2317671F120AD700EB3193 /* NSArray+JTAddition.m */,
 				6C2317681F120AD700EB3193 /* NSAttributedString+JTAdditon.h */,
@@ -597,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C2317791F120AD700EB3193 /* UIView+JTAddition.m in Sources */,
+				6C2317B91F17A0C400EB3193 /* NSString+JTPath.m in Sources */,
 				6C2317871F12131F00EB3193 /* WBMessageViewController.swift in Sources */,
 				6C2317A01F136DE400EB3193 /* WBVisitorView.swift in Sources */,
 				6C2317B41F178F0800EB3193 /* WBOAuthViewController.swift in Sources */,

@@ -31,5 +31,26 @@ class WBAccount: NSObject {
         return yy_modelDescription()
     }
     
+    /// 保存账户到沙盒
+    func saveAccount(){
+        
+        // 模型转字典
+        var dict = (self.yy_modelToJSONObject() as? [String:AnyObject]) ?? [:]
+        
+        // 删除 expires_in 值
+        dict.removeValue(forKey: "expires_in")
+        
+        // 字典序列化
+       guard let data = try? JSONSerialization.data(withJSONObject: dict, options: [.prettyPrinted]),
+        let filePath = ("account.json" as NSString).appendDocumentDir() else{
+            return
+        }
+        
+        (data as NSData).write(toFile: filePath, atomically: true)
+        print("账户保存成功:\(filePath)")
+        
+        
+    }
+    
     
 }
