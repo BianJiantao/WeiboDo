@@ -66,6 +66,10 @@ extension WBBaseViewController {
     /// 通知监听方法
     @objc fileprivate func loginSuccess(){
         
+        // 重置导航栏按钮
+        navItem.leftBarButtonItem = nil
+        navItem.rightBarButtonItem = nil
+        
         // 清空 view, 就会重新加载 view , 调用 loadView,viewDidLoad方法,从而刷新界面.监听通知会再执行一次,因此,需要注销监听
         view = nil
         
@@ -117,6 +121,10 @@ extension WBBaseViewController{
                                                left: 0,
                                                bottom: tabBarController?.tabBar.bounds.height ?? 49,
                                                right: 0)
+        // 设置 TableView 滚动指示器的缩进
+        tableView?.scrollIndicatorInsets = tableView!.contentInset
+        
+        
         // 设置下拉刷新
         // 实例化刷新控件
         refreshControl = UIRefreshControl()
