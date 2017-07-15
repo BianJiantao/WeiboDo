@@ -31,6 +31,14 @@ class WBHomeViewController: WBBaseViewController {
     
     }
     
+    /// 标题按钮点击
+    @objc fileprivate func titleBtnClick(btn:UIButton){
+        
+        btn.isSelected = !btn.isSelected
+        
+    }
+    
+    
     /// 加载数据
     override func loadData() {
         
@@ -96,5 +104,22 @@ extension WBHomeViewController{
         // 注册原型 cell
         tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         
+        // 设置导航栏标题
+        setupNavTitle()
+        
     }
+    
+    
+    /// 设置导航栏标题按钮
+    private func setupNavTitle(){
+        
+        let title = WBNetworkManager.shared.account.screen_name
+        
+        let titleBtn = WBTitleButton(title:title)
+        navItem.titleView = titleBtn
+        titleBtn.addTarget(self, action: #selector(titleBtnClick(btn:)), for: .touchUpInside)
+        
+    }
+    
+    
 }
