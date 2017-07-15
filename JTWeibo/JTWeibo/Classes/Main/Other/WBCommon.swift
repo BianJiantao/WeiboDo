@@ -17,3 +17,4 @@ let  WBAppRedirectUri = "http://www.baidu.com";
 
 // MARK: - 通知
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"
+let WBUserLoginSuccessNotification = "WBUserLoginSuccessNotification"

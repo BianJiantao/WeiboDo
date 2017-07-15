@@ -35,8 +35,15 @@ class WBBaseViewController: UIViewController {
         
         WBNetworkManager.shared.userLogon ? loadData() : ()
         
+        // 监听登录成功的通知
+        NotificationCenter.default.addObserver(self, selector: #selector(loginSuccess), name: NSNotification.Name(rawValue: WBUserLoginSuccessNotification), object: nil)
+        
     }
 
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     
     /// 加载数据,交由子类实现
     func loadData(){
@@ -53,9 +60,23 @@ class WBBaseViewController: UIViewController {
     }
 
 }
-// MARK: - 按钮监听方法
+// MARK: - 监听方法
 extension WBBaseViewController {
     
+    /// 通知监听方法
+    @objc fileprivate func loginSuccess(){
+        
+        // 清空 view, 就会重新加载 view , 调用 loadView,viewDidLoad方法,从而刷新界面.监听通知会再执行一次,因此,需要注销监听
+        view = nil
+        
+        // 注销监听 , 避免重复注册
+        NotificationCenter.default.removeObserver(self)
+        
+        
+    }
+    
+    
+    /// 按钮点击监听方法
     @objc func loginButtonClick(){
         print(#function)
         // 登录

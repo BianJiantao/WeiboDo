@@ -54,7 +54,7 @@ class WBOAuthViewController: UIViewController {
         webView.stringByEvaluatingJavaScript(from: js)
     }
     
-    // 返回按钮点击
+    /// 返回按钮点击
     @objc fileprivate func back(){
         // 移除加载指示
         SVProgressHUD.dismiss()
@@ -97,6 +97,14 @@ extension WBOAuthViewController:UIWebViewDelegate{
             }else{
                 SVProgressHUD.showInfo(withStatus: "登录成功")
                 // 跳转界面
+                // 发出登录成功的通知
+            NotificationCenter.default.post(
+                name: NSNotification.Name(rawValue: WBUserLoginSuccessNotification),
+                object: nil)
+             
+                // 关闭当前界面
+                self.back()
+                
             }
             
             
