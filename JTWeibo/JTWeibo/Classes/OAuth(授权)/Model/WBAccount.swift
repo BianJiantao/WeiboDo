@@ -47,6 +47,19 @@ class WBAccount: NSObject {
         // 利用字典给账户模型的属性设值
         yy_modelSet(with: dict ?? [:])
         
+        // 判断 token 是否过期
+//        expiresDate = Date(timeIntervalSinceNow: -3600*24)
+        if expiresDate?.compare(Date()) != .orderedDescending { // 过期
+            // 清空 token , UID
+            access_token = nil
+            uid = nil
+            
+            // 删除沙盒账户信息文件
+            try? FileManager.default.removeItem(atPath: path)
+            
+        }
+        
+        
         
     }
     
