@@ -89,8 +89,18 @@ extension WBOAuthViewController:UIWebViewDelegate{
         // 获取授权码
         let code = request.url?.query?.substring(from: "code=".endIndex) ?? ""
 //        print("获取授权码--\(code)")
-        
-        WBNetworkManager.shared.loadAccessToken(code: code)
+        // 使用授权码获取 accessToken
+        WBNetworkManager.shared.loadAccessToken(code: code) { (isSuccess) in
+            
+            if !isSuccess {
+                SVProgressHUD.showInfo(withStatus: "网络请求失败")
+            }else{
+                SVProgressHUD.showInfo(withStatus: "登录成功")
+                // 跳转界面
+            }
+            
+            
+        }
         
         return false
     }

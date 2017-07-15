@@ -62,8 +62,9 @@ extension WBNetworkManager {
     
     /// 用授权码 code 换取 AccessToken
     ///
-    /// - parameter code:  授权码
-    func loadAccessToken(code:String) {
+    /// - parameter code:      授权码
+    /// - parameter comletion: 完成的回调
+    func loadAccessToken(code:String,comletion:@escaping (_ isSuccess:Bool)->()) {
         
         let urlStr = "https://api.weibo.com/oauth2/access_token"
         let params = [
@@ -81,6 +82,7 @@ extension WBNetworkManager {
             print(self.account)
             
             self.account.saveAccount()
+            comletion(isSuccess)
             
         }
         
