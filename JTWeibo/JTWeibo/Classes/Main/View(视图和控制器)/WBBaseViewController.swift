@@ -63,7 +63,7 @@ class WBBaseViewController: UIViewController {
 // MARK: - 监听方法
 extension WBBaseViewController {
     
-    /// 通知监听方法
+    /// 通知监听方法,登录成功
     @objc fileprivate func loginSuccess(){
         
         // 重置导航栏按钮

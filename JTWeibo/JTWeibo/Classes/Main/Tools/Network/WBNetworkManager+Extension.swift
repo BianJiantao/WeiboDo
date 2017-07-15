@@ -57,6 +57,30 @@ extension WBNetworkManager {
     
 }
 
+
+// MARK: - 加载用户信息
+extension WBNetworkManager {
+    
+    func loadUserInfo(completion:@escaping (_ dict:[String:AnyObject])->()){
+        
+        guard let uid = account.uid else {
+            return
+        }
+        let urlStr = "https://api.weibo.com/2/users/show.json"
+        let params = ["uid":uid]
+        
+        tokenRequest(URLString: urlStr, parameters: params) { (json, isSuccess) in
+            
+//            print(json)
+            completion((json as? [String:AnyObject]) ?? [:])
+            
+        }
+        
+    }
+    
+}
+
+
 // MARK: - OAuth 相关方法
 extension WBNetworkManager {
     
@@ -79,10 +103,23 @@ extension WBNetworkManager {
             
             // 字典转模型
             self.account.yy_modelSet(with: (json as? [String:AnyObject]) ?? [:])
-            print(self.account)
+//            print(self.account)
             
-            self.account.saveAccount()
-            comletion(isSuccess)
+            // 加载用户信息
+            self.loadUserInfo(completion: { (dict) in
+                
+                // 使用账户信息字典设置账户信息 (昵称/头像)
+                self.account.yy_modelSet(with: dict)
+                
+//                print(self.account)
+                
+                // 保存用户模型
+                self.account.saveAccount()
+                
+                // 完成回调
+                comletion(isSuccess)
+            })
+            
             
         }
         
