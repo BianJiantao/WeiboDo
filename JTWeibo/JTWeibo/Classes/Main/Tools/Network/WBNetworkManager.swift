@@ -48,7 +48,8 @@ class WBNetworkManager: AFHTTPSessionManager {
             
             print("没有 token!需要登录")
             completion(nil,false)
-            // FIXME: 发出通知,登录
+            // 发出通知,登录
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
             
             return
         }
@@ -86,8 +87,8 @@ class WBNetworkManager: AFHTTPSessionManager {
             // 针对 403 错误,处理用户 token 过期
             if (task?.response as? HTTPURLResponse)?.statusCode == 403 {
                 print("token过期")
-                // FIXME: 发出通知,重新登录
-                
+                // 发出通知,重新登录
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: "bad token")
             }
             
             

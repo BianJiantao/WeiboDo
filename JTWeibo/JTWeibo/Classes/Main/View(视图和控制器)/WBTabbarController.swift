@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class WBTabbarController: UITabBarController {
 
@@ -41,13 +42,26 @@ class WBTabbarController: UITabBarController {
     
     // MARK: - 监听方法
     // 用户登录通知
-    @objc fileprivate func userShouldLogin(){
+    @objc fileprivate func userShouldLogin(noti:Notification){
     
-        print(#function)
+        print(#function + "\(noti)")
+        var when = DispatchTime.now()
         
-        let nav = UINavigationController(rootViewController: WBOAuthViewController())
+        if noti.object != nil { // 程序运行中, token 过期, 重新登录
+            // 设置指示器渐变样式
+            SVProgressHUD.showInfo(withStatus: "用户登录已经超时,需要重新登录")
+            SVProgressHUD.setDefaultMaskType(.gradient)
+            when = DispatchTime.now() + 2
+            
+        }
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            
+            let nav = UINavigationController(rootViewController: WBOAuthViewController())
+            
+            self.present(nav, animated: true, completion: nil)
+            
+        }
         
-        present(nav, animated: true, completion: nil)
         
     }
     
