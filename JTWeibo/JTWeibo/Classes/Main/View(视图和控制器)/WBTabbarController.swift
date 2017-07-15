@@ -21,6 +21,8 @@ class WBTabbarController: UITabBarController {
         setupComposeButton()
         setupTimer()
         
+        setupNewfeatureView()
+        
         delegate = self
         
         NotificationCenter.default.addObserver(self, selector: #selector(userShouldLogin), name: NSNotification.Name(rawValue: WBUserShouldLoginNotification), object: nil)
@@ -77,6 +79,42 @@ class WBTabbarController: UITabBarController {
     // 加号按钮
     fileprivate lazy var composeButton : UIButton = UIButton.imageButton("tabbar_compose_icon_add", backgroundImageName: "tabbar_compose_button")
 
+}
+
+// MARK: - 新特性/欢迎 界面
+extension WBTabbarController {
+    
+    fileprivate func setupNewfeatureView(){
+        //判断是否登录
+        if !WBNetworkManager.shared.userLogon {
+            
+            return
+        }
+        
+        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+        view.addSubview(v)
+        
+    }
+    
+    //extension 中可以有计算行属性 不会占用内存空间
+    private var isNewVersion: Bool {
+        
+        //取出当前版本号
+        let currentVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
+        
+        //取出保存在偏好设置的版本号
+        let lastVersion = UserDefaults.standard.string(forKey: "WBVersionKey") ?? ""
+        
+        //将当前的版本号存储在偏好设置
+        UserDefaults.standard.set(currentVersion, forKey: "WBVersionKey")
+        UserDefaults.standard.synchronize()
+        
+        //返回 两个版本号是否一致
+        return currentVersion != lastVersion
+        
+    }
+    
+    
 }
 
 

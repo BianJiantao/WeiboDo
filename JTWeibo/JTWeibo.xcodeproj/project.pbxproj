@@ -42,6 +42,9 @@
 		6C2317B61F178F2E00EB3193 /* WBAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B51F178F2E00EB3193 /* WBAccount.swift */; };
 		6C2317B91F17A0C400EB3193 /* NSString+JTPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317B81F17A0C400EB3193 /* NSString+JTPath.m */; };
 		6C2317BE1F1A148C00EB3193 /* WBTitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317BD1F1A148C00EB3193 /* WBTitleButton.swift */; };
+		6C2317C11F1A36C200EB3193 /* WBNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */; };
+		6C2317C31F1A36D200EB3193 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */; };
+		6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +121,9 @@
 		6C2317B71F17A0C400EB3193 /* NSString+JTPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JTPath.h"; sourceTree = "<group>"; };
 		6C2317B81F17A0C400EB3193 /* NSString+JTPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JTPath.m"; sourceTree = "<group>"; };
 		6C2317BD1F1A148C00EB3193 /* WBTitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBTitleButton.swift; sourceTree = "<group>"; };
+		6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNewFeatureView.swift; sourceTree = "<group>"; };
+		6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
+		6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -212,6 +218,7 @@
 		6C23174B1F11D07D00EB3193 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6C2317BF1F1A344300EB3193 /* NewFeature(新特性) */,
 				6C2317AE1F17175D00EB3193 /* OAuth(授权) */,
 				6C23178C1F12142600EB3193 /* Discover(发现) */,
 				6C2317841F1212EF00EB3193 /* Message(消息) */,
@@ -419,6 +426,16 @@
 			path = TitleButton;
 			sourceTree = "<group>";
 		};
+		6C2317BF1F1A344300EB3193 /* NewFeature(新特性) */ = {
+			isa = PBXGroup;
+			children = (
+				6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */,
+				6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */,
+				6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */,
+			);
+			path = "NewFeature(新特性)";
+			sourceTree = "<group>";
+		};
 		AA9EBDF3D7938C044151C47E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -540,6 +557,7 @@
 			files = (
 				6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */,
 				6C2317251F11CBF600EB3193 /* Assets.xcassets in Resources */,
+				6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -618,6 +636,7 @@
 				6C2317A01F136DE400EB3193 /* WBVisitorView.swift in Sources */,
 				6C2317B41F178F0800EB3193 /* WBOAuthViewController.swift in Sources */,
 				6C2317BE1F1A148C00EB3193 /* WBTitleButton.swift in Sources */,
+				6C2317C31F1A36D200EB3193 /* WBWelcomeView.swift in Sources */,
 				6C2317A51F14BBAB00EB3193 /* WBNetworkManager.swift in Sources */,
 				6C23175C1F11D16C00EB3193 /* WBBaseViewController.swift in Sources */,
 				6C2317631F11E41400EB3193 /* Bundle+Extension.swift in Sources */,
@@ -639,6 +658,7 @@
 				6C2317AD1F17131600EB3193 /* WBCommon.swift in Sources */,
 				6C2317771F120AD700EB3193 /* UIColor+JTAddition.m in Sources */,
 				6C23179E1F12597700EB3193 /* UIScreen+JTAddition.m in Sources */,
+				6C2317C11F1A36C200EB3193 /* WBNewFeatureView.swift in Sources */,
 				6C23175A1F11D13000EB3193 /* WBNavigationController.swift in Sources */,
 				6C2317821F1212D500EB3193 /* WBHomeViewController.swift in Sources */,
 				6C23178E1F12142600EB3193 /* WBDiscoverViewController.swift in Sources */,
