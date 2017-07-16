@@ -26,6 +26,8 @@ class WBAccount: NSObject {
     /// 用户头像地址（中国） 58 * 58 像素
     var profile_image_url: String?
     
+    var avatar_large:String?
+    
     /// access_token 的生命周期 开发者5年 使用者3天, 单位是秒数
     var expires_in: TimeInterval = 0{
         didSet{

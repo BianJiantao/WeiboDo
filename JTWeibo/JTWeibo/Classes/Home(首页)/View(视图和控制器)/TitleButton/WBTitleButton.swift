@@ -46,12 +46,12 @@ class WBTitleButton: UIButton {
                 return
         }
         
-        print("\(titleLabel)\n\(imageView)")
+//        print("\(titleLabel)\n\(imageView)")
     
         titleLabel.frame.origin.x = 0
         imageView.frame.origin.x = titleLabel.frame.size.width
         
-        print("\(titleLabel)\n\(imageView)")
+//        print("\(titleLabel)\n\(imageView)")
 
     }
     

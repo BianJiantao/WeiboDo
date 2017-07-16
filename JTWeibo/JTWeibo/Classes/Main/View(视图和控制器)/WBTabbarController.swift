@@ -91,7 +91,7 @@ extension WBTabbarController {
             return
         }
         
-        let v = isNewVersion ? WBNewFeatureView() : WBWelcomeView.welcomeView()
+        let v = isNewVersion ? WBNewFeatureView.newFeatureView(): WBWelcomeView.welcomeView()
         view.addSubview(v)
         
     }

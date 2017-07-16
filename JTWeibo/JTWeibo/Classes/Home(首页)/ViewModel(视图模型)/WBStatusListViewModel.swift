@@ -6,7 +6,7 @@
 //  Copyright © 2017年 BJT. All rights reserved.
 // 微博列表视图模型
 // 负责微博数据处理
-// 1. 字典船模型
+// 1. 字典转模型
 // 2. 上/下拉刷新
 
 import Foundation

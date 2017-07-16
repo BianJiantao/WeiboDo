@@ -19,7 +19,7 @@
                         <constraint firstAttribute="width" constant="85" id="lFf-gN-aSn"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1K-Qq-QNc">
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎归来" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1K-Qq-QNc">
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -36,7 +36,13 @@
                 <constraint firstItem="UcS-wx-trr" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="qbo-M2-e6t"/>
                 <constraint firstItem="n1K-Qq-QNc" firstAttribute="centerX" secondItem="UcS-wx-trr" secondAttribute="centerX" id="u0E-xq-CqE"/>
             </constraints>
-            <point key="canvasLocation" x="-313" y="-916"/>
+            <connections>
+                <outlet property="bottomCons" destination="czD-S2-EnK" id="0cT-17-AET"/>
+                <outlet property="iconView" destination="UcS-wx-trr" id="RWk-sO-6DD"/>
+                <outlet property="iconWidthCons" destination="lFf-gN-aSn" id="1a3-7v-aaz"/>
+                <outlet property="tipLabel" destination="n1K-Qq-QNc" id="K8D-hg-1Cu"/>
+            </connections>
+            <point key="canvasLocation" x="-1383" y="-814"/>
         </view>
     </objects>
     <resources>

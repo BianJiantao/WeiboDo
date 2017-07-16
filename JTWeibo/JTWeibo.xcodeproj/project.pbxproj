@@ -45,6 +45,7 @@
 		6C2317C11F1A36C200EB3193 /* WBNewFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */; };
 		6C2317C31F1A36D200EB3193 /* WBWelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */; };
 		6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */; };
+		6C2317C71F1AFB8700EB3193 /* WBNewFeatureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2317C61F1AFB8600EB3193 /* WBNewFeatureView.xib */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBNewFeatureView.swift; sourceTree = "<group>"; };
 		6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBWelcomeView.swift; sourceTree = "<group>"; };
 		6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBWelcomeView.xib; sourceTree = "<group>"; };
+		6C2317C61F1AFB8600EB3193 /* WBNewFeatureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBNewFeatureView.xib; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -429,6 +431,7 @@
 		6C2317BF1F1A344300EB3193 /* NewFeature(新特性) */ = {
 			isa = PBXGroup;
 			children = (
+				6C2317C61F1AFB8600EB3193 /* WBNewFeatureView.xib */,
 				6C2317C01F1A36C200EB3193 /* WBNewFeatureView.swift */,
 				6C2317C21F1A36D200EB3193 /* WBWelcomeView.swift */,
 				6C2317C41F1A3CD300EB3193 /* WBWelcomeView.xib */,
@@ -558,6 +561,7 @@
 				6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */,
 				6C2317251F11CBF600EB3193 /* Assets.xcassets in Resources */,
 				6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */,
+				6C2317C71F1AFB8700EB3193 /* WBNewFeatureView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

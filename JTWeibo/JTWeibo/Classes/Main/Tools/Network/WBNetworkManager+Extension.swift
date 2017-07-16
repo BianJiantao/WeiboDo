@@ -71,7 +71,7 @@ extension WBNetworkManager {
         
         tokenRequest(URLString: urlStr, parameters: params) { (json, isSuccess) in
             
-//            print(json)
+            print(json)
             completion((json as? [String:AnyObject]) ?? [:])
             
         }
