@@ -18,6 +18,9 @@ class WBStatus: NSObject {
     /// 微博信息内容
     var text: String?
     
+    /// 微博用户
+    var user: WBUser?
+    
     /// 重写 description 的计算性属性 (开发模型时,重写模型的description )
     override var description: String{
         return yy_modelDescription()

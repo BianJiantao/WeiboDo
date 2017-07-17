@@ -137,6 +137,11 @@ extension WBTabbarController:UITabBarControllerDelegate {
                 
                 vc.loadData()
             })
+            
+            // 清除 tabbarItem 和 app 的 badgeValue
+            vc.tabBarItem.badgeValue = nil
+            UIApplication.shared.applicationIconBadgeNumber = 0
+            
         }
         
         // 点击加号按钮时,不切换
@@ -150,7 +155,7 @@ extension WBTabbarController {
     
     /// 定时器初始化
     fileprivate func setupTimer(){
-        timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
     }
     
     /// 定时器监听方法
@@ -163,7 +168,7 @@ extension WBTabbarController {
             print("有\(count)条未读微博")
             
             self.tabBar.items?[0].badgeValue = (count > 0) ? "\(count)" : nil
-            UIApplication.shared.applicationIconBadgeNumber = count + 1
+            UIApplication.shared.applicationIconBadgeNumber = count 
         }
         
     }
