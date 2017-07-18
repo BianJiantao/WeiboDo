@@ -55,14 +55,6 @@ class WBStatusListViewModel {
                 // 将视图模型添加到数组
                 array.append(WBStatusViewModel(model: model))
             }
-
-//            // 字典转模型  (注意 list 是可选项 , 要解包)
-//            guard let array = NSArray.yy_modelArray(with: WBStatus.self, json: list ?? []) as? [WBStatus] else {
-//                
-//                completion(isSuccess,false)
-//                return
-//            }
-            
             
             
             if pullupRefresh && array.count == 0{ // 上拉刷新,且没有刷新到数据

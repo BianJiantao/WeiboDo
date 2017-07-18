@@ -25,6 +25,14 @@ class WBStatusCell: UITableViewCell {
             iconView.jt_setImage(urlStr: viewModel?.status.user?.profile_image_url,
                                  placeholderImage: UIImage(named: "avatar_default_big"),
                                  isAvatar: true)
+            // 转发
+            retweetedBtn.setTitle(viewModel?.retweetedStr, for: .normal)
+            // 评论
+            commentBtn.setTitle(viewModel?.commentStr, for: .normal)
+            // 赞
+            likeBtn.setTitle(viewModel?.likeStr, for: .normal)
+            
+            
             
         }
     }
@@ -62,7 +70,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var likeBtn: UIButton!
     
     /// 配图视图
-    @IBOutlet weak var pictureView: UIView!
+    @IBOutlet weak var pictureView: WBStatusPicturesView!
     
     /// 被转发微博的文字 - 原创微博没有此控件 一定要 '?'
 //    @IBOutlet weak var retweededTextLabel: UILabel?

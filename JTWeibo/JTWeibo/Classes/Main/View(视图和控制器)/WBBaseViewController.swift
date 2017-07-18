@@ -123,8 +123,7 @@ extension WBBaseViewController{
                                                right: 0)
         // 设置 TableView 滚动指示器的缩进
         tableView?.scrollIndicatorInsets = tableView!.contentInset
-        
-        
+            
         // 设置下拉刷新
         // 实例化刷新控件
         refreshControl = UIRefreshControl()

@@ -50,11 +50,14 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMG-kr-NJ9" userLabel="配图视图">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lMG-kr-NJ9" userLabel="配图视图" customClass="WBStatusPicturesView" customModule="JTWeibo" customModuleProvider="target">
                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="280" id="dnX-kk-ayL"/>
                         </constraints>
+                        <connections>
+                            <outlet property="heightCons" destination="dnX-kk-ayL" id="65A-6o-SMq"/>
+                        </connections>
                     </view>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5KJ-jY-bhx" userLabel="底部工具栏">
                         <subviews>

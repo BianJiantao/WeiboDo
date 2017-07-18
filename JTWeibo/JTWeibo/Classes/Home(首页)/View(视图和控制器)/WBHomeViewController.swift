@@ -106,9 +106,9 @@ extension WBHomeViewController{
         tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
         // 设置行高
 //        tableView?.rowHeight = UITableViewAutomaticDimension
-//        tableView?.estimatedRowHeight = 400
+//        tableView?.estimatedRowHeight = 450
         
-        tableView?.rowHeight = 400
+        tableView?.rowHeight = 450
         
         tableView?.separatorStyle = .none
         // 设置导航栏标题

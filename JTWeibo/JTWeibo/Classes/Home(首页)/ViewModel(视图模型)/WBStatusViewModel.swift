@@ -31,6 +31,18 @@ class WBStatusViewModel:CustomStringConvertible {
     /// 认证图标  类型 : -1 没有认证 ; 0 认证用户 ; 2,3,5 企业用户; 220 达人
     var vipIcon: UIImage?
     
+    /// 转发
+    var retweetedStr: String?
+    
+    /// 评论
+    var commentStr: String?
+    
+    /// 点赞
+    var likeStr: String?
+    
+    /// 配图视图大小
+    var picturesViewSize = CGSize()
+    
     init(model:WBStatus) {
         
         self.status = model
@@ -53,11 +65,44 @@ class WBStatusViewModel:CustomStringConvertible {
             break
         }
         
+        //设置底部工具栏计数字符串
+        retweetedStr = countString(count: model.reposts_count, defaultStr: " 转发")
+        commentStr = countString(count: model.comments_count, defaultStr: " 评论")
+        likeStr = countString(count: model.attitudes_count, defaultStr: " 赞")
+        
+        
+        
     }
     
     var description: String{
         return status.yy_modelDescription()
     }
     
+    
+    
+    /// 给定一个数字,返回对应的描述结果
+    ///
+    /// - parameter count:      数字
+    /// - parameter defaultStr: 默认字符串  / 转发,评论,赞
+    ///
+    /// - returns: 描述结果
+    /*
+     如果 数量 == 0 显示默认标题
+     数量 超过 10000 显示x.xx万
+     如果 数量 <10000 显示实际数字
+     **/
+    private func countString(count:Int, defaultStr: String) ->String {
+        
+        if count == 0 {
+            return defaultStr
+        }
+        
+        if count < 10000 {
+            return count.description
+        }
+        
+        return String(format: "%.02f 万",  Double(count / 10000))
+    }
+
     
 }
