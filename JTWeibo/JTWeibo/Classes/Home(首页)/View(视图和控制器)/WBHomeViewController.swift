@@ -75,8 +75,7 @@ extension WBHomeViewController {
         // 取出 cell
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
         // 设置 cell
-//        cell.textLabel?.text = listViewModel.statusList[indexPath.row].text
-        cell.statusLabel?.text = listViewModel.statusList[indexPath.row].status.text
+        cell.viewModel = listViewModel.statusList[indexPath.row]
         
         // 返回 cell
         return cell
@@ -106,8 +105,10 @@ extension WBHomeViewController{
 //        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
         tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
         // 设置行高
-        tableView?.rowHeight = UITableViewAutomaticDimension
-        tableView?.estimatedRowHeight = 400
+//        tableView?.rowHeight = UITableViewAutomaticDimension
+//        tableView?.estimatedRowHeight = 400
+        
+        tableView?.rowHeight = 400
         
         tableView?.separatorStyle = .none
         // 设置导航栏标题
