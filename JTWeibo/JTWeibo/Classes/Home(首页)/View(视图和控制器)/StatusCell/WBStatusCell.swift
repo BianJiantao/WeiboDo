@@ -32,7 +32,7 @@ class WBStatusCell: UITableViewCell {
             // 赞
             likeBtn.setTitle(viewModel?.likeStr, for: .normal)
             
-            
+            pictureView.urls = viewModel?.status.pic_urls
             
         }
     }

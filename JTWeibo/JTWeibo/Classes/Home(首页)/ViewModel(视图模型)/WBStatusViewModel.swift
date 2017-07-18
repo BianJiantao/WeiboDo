@@ -71,6 +71,8 @@ class WBStatusViewModel:CustomStringConvertible {
         likeStr = countString(count: model.attitudes_count, defaultStr: " 赞")
         
         
+        //计算配图视图大小
+        picturesViewSize = calPicturesViewSize(count: status.pic_urls?.count)
         
     }
     
@@ -78,6 +80,26 @@ class WBStatusViewModel:CustomStringConvertible {
         return status.yy_modelDescription()
     }
     
+    /// 计算指定数量的图片对应的配图的大小
+    ///
+    /// - parameter count: 配图数量
+    ///
+    /// - returns: 配图视图的大小
+    private func calPicturesViewSize(count: Int?) ->CGSize {
+        
+        if count == 0 || count == nil{
+            return CGSize()
+        }
+        
+        /// 行数
+        let row = (count! - 1)/3 + 1
+        
+        /// 根据行数计算行高
+        let height = pictureOutterMargin + CGFloat(row) * WBStatusPictureItemWidth + CGFloat(row - 1) * pictureInnerMargin
+        
+        return CGSize(width: WBStatusPictureViewWidth, height: height)
+        
+    }
     
     
     /// 给定一个数字,返回对应的描述结果
