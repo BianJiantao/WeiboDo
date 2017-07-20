@@ -21,6 +21,9 @@ class WBStatus: NSObject {
     /// 微博用户
     var user: WBUser?
     
+    /// 被转发微博
+    var retweeted_status: WBStatus?
+    
     /// 微博配图模型数组
     var pic_urls: [WBStatusPicture]?
     
@@ -32,6 +35,7 @@ class WBStatus: NSObject {
     
     /// 点赞数
     var attitudes_count: Int = 0
+    
     
     /// 重写 description 的计算性属性 (开发模型时,重写模型的description )
     override var description: String{

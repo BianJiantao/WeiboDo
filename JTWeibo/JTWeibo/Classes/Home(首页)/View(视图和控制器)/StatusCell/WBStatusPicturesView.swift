@@ -15,16 +15,16 @@ class WBStatusPicturesView: UIView {
         
         didSet{
             
-            //隐藏所有的 imageView
+            /// 隐藏所有的 imageView
             for v in subviews {
                 v.isHidden = true
             }
             
             var index = 0
-            //设置图像
+            /// 设置图像
             for url in urls ?? [] {
                 let iv = subviews[index] as! UIImageView
-                if index == 1 && urls?.count == 4 {
+                if index == 1 && urls?.count == 4 { // 4 张图时,特殊处理
                     
                     index += 1
                 }
@@ -52,6 +52,10 @@ class WBStatusPicturesView: UIView {
 
 // MARK: - 设置界面
 extension WBStatusPicturesView {
+    
+    /// cell 中所有的控件都提前准备好
+    /// 设置的时候,根据数据决定是否显示
+    /// 不要动态创建控件
     
     fileprivate func setupUI(){
         

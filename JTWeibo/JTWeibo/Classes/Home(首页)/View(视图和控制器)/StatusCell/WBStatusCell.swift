@@ -32,7 +32,9 @@ class WBStatusCell: UITableViewCell {
             // 赞
             likeBtn.setTitle(viewModel?.likeStr, for: .normal)
             
-            pictureView.urls = viewModel?.status.pic_urls
+            pictureView.urls = viewModel?.picURLs
+            
+            retweetedTextLabel?.text = viewModel?.retweetedText
             
         }
     }
@@ -73,7 +75,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var pictureView: WBStatusPicturesView!
     
     /// 被转发微博的文字 - 原创微博没有此控件 一定要 '?'
-//    @IBOutlet weak var retweededTextLabel: UILabel?
+    @IBOutlet weak var retweetedTextLabel: UILabel?
 
     
     

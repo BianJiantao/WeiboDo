@@ -54,6 +54,7 @@
 		6C2317D41F1DEB1900EB3193 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317D31F1DEB1900EB3193 /* UIImage+Extension.swift */; };
 		6C2317D61F1DF60600EB3193 /* WBStatusPicturesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317D51F1DF60600EB3193 /* WBStatusPicturesView.swift */; };
 		6C2317D81F1DFB9700EB3193 /* WBStatusPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2317D71F1DFB9700EB3193 /* WBStatusPicture.swift */; };
+		6C2317DA1F1F264F00EB3193 /* WBStatusRetweedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C2317D91F1F264F00EB3193 /* WBStatusRetweedCell.xib */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -142,6 +143,7 @@
 		6C2317D31F1DEB1900EB3193 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		6C2317D51F1DF60600EB3193 /* WBStatusPicturesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPicturesView.swift; sourceTree = "<group>"; };
 		6C2317D71F1DFB9700EB3193 /* WBStatusPicture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPicture.swift; sourceTree = "<group>"; };
+		6C2317D91F1F264F00EB3193 /* WBStatusRetweedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBStatusRetweedCell.xib; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -464,6 +466,7 @@
 		6C2317C81F1B990A00EB3193 /* StatusCell */ = {
 			isa = PBXGroup;
 			children = (
+				6C2317D91F1F264F00EB3193 /* WBStatusRetweedCell.xib */,
 				6C2317C91F1B990A00EB3193 /* WBStatusNormalCell.xib */,
 				6C2317CB1F1B99B500EB3193 /* WBStatusCell.swift */,
 				6C2317D51F1DF60600EB3193 /* WBStatusPicturesView.swift */,
@@ -593,6 +596,7 @@
 				6C2317CA1F1B990A00EB3193 /* WBStatusNormalCell.xib in Resources */,
 				6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */,
 				6C2317251F11CBF600EB3193 /* Assets.xcassets in Resources */,
+				6C2317DA1F1F264F00EB3193 /* WBStatusRetweedCell.xib in Resources */,
 				6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */,
 				6C2317C71F1AFB8700EB3193 /* WBNewFeatureView.xib in Resources */,
 			);

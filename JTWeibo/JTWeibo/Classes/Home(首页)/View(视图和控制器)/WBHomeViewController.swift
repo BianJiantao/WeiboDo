@@ -9,7 +9,11 @@
 import UIKit
 
 // 定义当前文件下全局常量, cell 的重用标识符
-fileprivate let cellId = "cellId"
+
+//原创微博可重用 cell
+private let originalCellID = "originalCellID"
+//转发微博的可重用 cell
+private let retweetedCellID = "retweetedCellID"
 
 class WBHomeViewController: WBBaseViewController {
 
@@ -72,10 +76,12 @@ extension WBHomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        let viewModel = listViewModel.statusList[indexPath.row]
+        let cellID = viewModel.status.retweeted_status == nil ? originalCellID : retweetedCellID
         // 取出 cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! WBStatusCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusCell
         // 设置 cell
-        cell.viewModel = listViewModel.statusList[indexPath.row]
+        cell.viewModel = viewModel
         
         // 返回 cell
         return cell
@@ -102,8 +108,10 @@ extension WBHomeViewController{
         navItem.leftBarButtonItem = UIBarButtonItem(title: "好友", target: self, action: #selector(showFriends))
         
         // 注册原型 cell
-//        tableView?.register(UITableViewCell.self, forCellReuseIdentifier: cellId)
-        tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: cellId)
+        tableView?.register(UINib(nibName: "WBStatusNormalCell", bundle: nil), forCellReuseIdentifier: originalCellID)
+        tableView?.register(UINib(nibName: "WBStatusRetweedCell", bundle: nil), forCellReuseIdentifier: retweetedCellID)
+        
+        
         // 设置行高
 //        tableView?.rowHeight = UITableViewAutomaticDimension
 //        tableView?.estimatedRowHeight = 450
