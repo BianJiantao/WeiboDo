@@ -9,11 +9,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="417" id="aIb-zl-Hyu" customClass="WBStatusCell" customModule="JTWeibo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="403" height="417"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="447" id="aIb-zl-Hyu" customClass="WBStatusCell" customModule="JTWeibo" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="447"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aIb-zl-Hyu" id="y2N-6i-X7S">
-                <frame key="frameInset" width="403" height="416"/>
+                <frame key="frameInset" width="423" height="446"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saY-Rc-d6O" userLabel="顶部分隔视图">
@@ -93,7 +93,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3va-vG-9WV" firstAttribute="centerY" secondItem="hzB-cJ-MJF" secondAttribute="centerY" id="0Bj-H7-lmC"/>
-                            <constraint firstAttribute="height" constant="28" id="8w0-n4-HQk"/>
+                            <constraint firstAttribute="height" constant="35" id="8w0-n4-HQk"/>
                             <constraint firstItem="hzB-cJ-MJF" firstAttribute="leading" secondItem="5KJ-jY-bhx" secondAttribute="leading" id="AoN-6C-Vdm"/>
                             <constraint firstItem="hkm-8y-YPm" firstAttribute="leading" secondItem="3va-vG-9WV" secondAttribute="trailing" id="GQA-GJ-n4g"/>
                             <constraint firstItem="hkm-8y-YPm" firstAttribute="centerY" secondItem="3va-vG-9WV" secondAttribute="centerY" id="LxO-xz-wfP"/>
@@ -153,7 +153,7 @@
                 <outlet property="timeLabel" destination="1L3-4H-wUi" id="kOI-ez-ha3"/>
                 <outlet property="vipIconView" destination="buA-sk-fg3" id="0ZU-Xj-ujt"/>
             </connections>
-            <point key="canvasLocation" x="-490.5" y="-227.5"/>
+            <point key="canvasLocation" x="-480.5" y="-212.5"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -9,9 +9,39 @@
 import UIKit
 
 class WBStatusPicturesView: UIView {
-
     
-    var urls: [WBStatusPicture]? {
+    var viewModel: WBStatusViewModel?{
+        
+        didSet{
+            calcViewSize()
+            /// 设置配图 （被转发和原创）
+            urls = viewModel?.picURLs
+        }
+    }
+    
+    /// 根据视图模型的配图大小 调整显示内容
+    private func calcViewSize(){
+        
+        // 处理宽度
+        // 单图，根据配图视图大小 修改 subview(0)的宽度
+        
+        if viewModel?.picURLs?.count == 1 {
+            let viewSize = viewModel?.pictureViewSize ?? CGSize()
+            let v = subviews[0]
+            v.frame = CGRect(x: 0, y: pictureOutterMargin, width:viewSize.width , height: viewSize.height - pictureOutterMargin)
+        }else{
+            
+            // 多图 、无图 恢复 subview【0】的宽度 保证九宫格布局
+            let v = subviews[0]
+            v.frame = CGRect(x: 0, y: pictureOutterMargin, width:WBStatusPictureItemWidth , height:WBStatusPictureItemWidth)
+        }
+        
+        // 修改高度约束
+        heightCons.constant = viewModel?.pictureViewSize.height ?? 0
+    }
+    
+    
+    private var urls: [WBStatusPicture]? {
         
         didSet{
             

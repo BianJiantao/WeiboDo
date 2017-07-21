@@ -10,6 +10,8 @@
 // 2. 上/下拉刷新
 
 import Foundation
+import SDWebImage
+
 // 最大连续上拉刷新尝试次数
 private let maxPullupTryTimes = 3
 
@@ -56,12 +58,6 @@ class WBStatusListViewModel {
                 array.append(WBStatusViewModel(model: model))
             }
             
-            
-            if pullupRefresh && array.count == 0{ // 上拉刷新,且没有刷新到数据
-                completion(isSuccess,false)
-                self.pullupTryTimes += 1
-            }
-            
             // 拼接数据
             if pullupRefresh { // 上拉刷新
                 self.statusList += array
@@ -70,13 +66,70 @@ class WBStatusListViewModel {
                 self.statusList = array + self.statusList
             }
             
-            // 完成回调
-            completion(isSuccess,true)
+            if pullupRefresh && array.count == 0{ // 上拉刷新,且没有刷新到数据
+                completion(isSuccess,false)
+                self.pullupTryTimes += 1
+            }else{
+                // 完成回调
+                self.cacheSingleImage(list: array, finished: completion)
+            }
+            
+            
             
         }
         
     }
+    /// 缓存本次下载微博数据数组中是单张图像
+    ///
+    /// - parameter list: 本次下载的视图模型数组
+    private func cacheSingleImage(list: [WBStatusViewModel], finished:@escaping (_ isSuccess: Bool, _ shouldRefresh: Bool)->()) {
+        
+        //调度组
+        let group = DispatchGroup()
+        
+        //记录数据长度
+        var length = 0
+        
+        for vm in list {
+            if vm.picURLs?.count != 1 {
+                continue
+            }
+            
+            /// 代码执行到此，数组中有且仅有一张图片
+            guard let picUrl = vm.picURLs?[0].thumbnail_pic,
+                let url = URL(string: picUrl) else {
+                    continue
+            }
+            
+            //入组
+            group.enter()
+            
+            //下载图像  downloadImage 是SDWebImage 的核心方法 图片下载完成后 会自动保存到沙盒中 文件路径是 url 的 MD5
     
+            SDWebImageManager.shared().loadImage(with: url, options: [], progress: nil, completed: { (image, _, _, _,_,_) in
+                if let image = image,
+                    let data = UIImagePNGRepresentation(image){
+                    
+                    //NSData 是 length 属性
+                    length += data.count
+                    //图像缓存成功 更新配图视图大小
+                    vm.updateImageSize(image: image)
+                    
+                }
+                //出组 -放在回调的最后一句
+                group.leave()
+            })
+            
+        }
+        
+        group.notify(queue: DispatchQueue.main) {
+            print("图像缓存\(length/1024)k")
+            
+            //完成回调
+            finished(true, true)
+            
+        }
+    }
     
     
 }

@@ -41,13 +41,16 @@ class WBStatusViewModel:CustomStringConvertible {
     var likeStr: String?
     
     /// 配图视图大小
-    var picturesViewSize = CGSize()
+    var pictureViewSize = CGSize()
     
     /// 如果是被转发的微博，原创微博肯定没有图
     var  picURLs: [ WBStatusPicture]? {
         // 如果有被转发的微博 返回被转发微博的配图， 如果没有，返回原创微博的配图 ,如果都没有 返回 nil
         return status.retweeted_status?.pic_urls ?? status.pic_urls
     }
+    
+    /// 行高
+    var rowHeight:CGFloat = 0
     
     /// 被转发微博的正文
     var retweetedText: String?
@@ -79,16 +82,113 @@ class WBStatusViewModel:CustomStringConvertible {
         commentStr = countString(count: model.comments_count, defaultStr: " 评论")
         likeStr = countString(count: model.attitudes_count, defaultStr: " 赞")
         
-        //计算配图视图大小
-        picturesViewSize = calPicturesViewSize(count: picURLs?.count)
+        // 计算配图视图大小
+        pictureViewSize = calPicturesViewSize(count: picURLs?.count)
         
         retweetedText = "@" + (model.retweeted_status?.user?.screen_name ?? "") + ":" + (model.retweeted_status?.text ?? "")
-        
+        updateRowHeight()
     }
     
     var description: String{
         return status.yy_modelDescription()
     }
+    
+    /// 根据当前视图模型内容计算行高
+    func updateRowHeight() {
+        
+        let margin:CGFloat = 12
+        
+        let iconHeight: CGFloat = 34
+        
+        let toolBarHeight: CGFloat = 35
+        
+        let viewSize = CGSize(width: UIScreen.screenWidth() - 2 * margin, height: CGFloat(MAXFLOAT))
+        
+        let originalFont = UIFont.systemFont(ofSize: 15)
+        
+        let retweetedFont = UIFont.systemFont(ofSize: 14)
+        
+        // 计算顶部位置
+        var height = 2 * margin + iconHeight + margin
+        
+        // 正文高度
+        if let text = status.text {
+            
+            // 正文属性文本高度 属性文本中，自身已经包含了字体属性
+//            height += text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin], context: nil).height
+            
+            /**
+             预期尺寸，宽度固定，高度尽量大
+             选项： 换行文本 统一使用 .usesLineFragmentOrigin
+             attributes:指定字体字典
+             */
+           height += (text as NSString).boundingRect(with: viewSize, options:.usesLineFragmentOrigin, attributes: [NSFontAttributeName: originalFont], context: nil).height
+            
+            // 判断是否有转发微博
+            if status.retweeted_status != nil {
+                
+                height += 2 * margin
+                
+                if let text = retweetedText {
+//                    height += text.boundingRect(with: viewSize, options: [.usesLineFragmentOrigin], context: nil).height
+                    
+                height += (text as NSString).boundingRect(with: viewSize, options:.usesLineFragmentOrigin, attributes: [NSFontAttributeName: retweetedFont], context: nil).height
+                    
+                }
+            }
+            
+            // 配图视图
+            height += pictureViewSize.height
+            
+            height += margin
+            
+            // 底部工具栏
+            height += toolBarHeight
+            
+            // 使用属性记录
+            rowHeight = height
+            
+        }
+    }
+    
+    
+    /// 使用单个图像 更新配图视图的大小
+    ///
+    /// 新浪针对单张图片，都是缩略图，但是偶尔会有一张特别大的图
+    /// - parameter image: 网络缓存的单张图像
+    ///
+    func updateImageSize(image: UIImage) {
+        var size = image.size
+        
+        let maxWith: CGFloat = 300
+        let minWidth: CGFloat = 40
+        
+        // 过宽图片处理
+        if size.width >= maxWith {
+            // 设置最大宽度
+            size.width = maxWith
+            // 等比例调整高度
+            size.height = size.width * image.size.height / image.size.width
+        }
+        
+        // 过窄处理
+        if size.width < minWidth {
+            // 设置最大宽度
+            size.width = minWidth
+            // 等比例调整高度
+            size.height = size.width * image.size.height/image.size.width / 4
+        }
+        
+        
+        // 注意 尺寸需要增加顶部的 12 个点 便于布局
+        size.height +=  pictureOutterMargin
+        
+        pictureViewSize = size
+        
+        // 更新行高
+        updateRowHeight()
+    }
+
     
     /// 计算指定数量的图片对应的配图的大小
     ///

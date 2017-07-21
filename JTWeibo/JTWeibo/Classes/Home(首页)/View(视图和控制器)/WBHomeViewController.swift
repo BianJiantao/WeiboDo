@@ -86,6 +86,16 @@ extension WBHomeViewController {
         // 返回 cell
         return cell
     }
+    
+    /// 父类必须实现代理方法 子类才能重写 Swift 3.0 如此 2.0 不需要
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        let viewModel = listViewModel.statusList[indexPath.row]
+        
+        return viewModel.rowHeight
+        
+    }
+    
 }
 
 
@@ -116,7 +126,7 @@ extension WBHomeViewController{
 //        tableView?.rowHeight = UITableViewAutomaticDimension
 //        tableView?.estimatedRowHeight = 450
         
-        tableView?.rowHeight = 450
+//        tableView?.rowHeight = 450
         
         tableView?.separatorStyle = .none
         // 设置导航栏标题
