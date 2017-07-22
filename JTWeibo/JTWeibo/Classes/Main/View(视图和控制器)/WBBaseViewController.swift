@@ -16,7 +16,7 @@ class WBBaseViewController: UIViewController {
     // 表格视图
     var tableView:UITableView?
     // 下拉刷新控件
-    var refreshControl:UIRefreshControl?
+    var refreshControl:WBRefreshControl?
     // 是否上拉刷新
     var isPullupRefresh:Bool = false
     
@@ -126,7 +126,7 @@ extension WBBaseViewController{
             
         // 设置下拉刷新
         // 实例化刷新控件
-        refreshControl = UIRefreshControl()
+        refreshControl = WBRefreshControl()
         // 添加到视图
         tableView?.addSubview(refreshControl!)
         // 添加监听方法

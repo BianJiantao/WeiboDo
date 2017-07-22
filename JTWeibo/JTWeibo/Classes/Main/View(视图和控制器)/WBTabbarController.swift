@@ -96,7 +96,7 @@ extension WBTabbarController {
         
     }
     
-    //extension 中可以有计算行属性 不会占用内存空间
+    // extension 中可以有计算型属性 不会占用内存空间
     private var isNewVersion: Bool {
         
         //取出当前版本号

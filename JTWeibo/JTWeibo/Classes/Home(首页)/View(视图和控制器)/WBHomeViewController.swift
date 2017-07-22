@@ -47,20 +47,27 @@ class WBHomeViewController: WBBaseViewController {
     override func loadData() {
         
         
-        listViewModel.loadStatus(pullupRefresh: self.isPullupRefresh) { (isSuccess,shouldRefresh) in
-            
-            if shouldRefresh { // 需要刷新微博表格数据
-                // 刷新表格
-                self.tableView?.reloadData()
-            }
-            // 重置上拉刷新标记
-            self.isPullupRefresh = false
-            
-            // 结束刷新
-            self.refreshControl?.endRefreshing()
-        }
+        refreshControl?.beginRefreshing()
         
-      
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 2) { // 模拟网速慢
+            
+            self.listViewModel.loadStatus(pullupRefresh: self.isPullupRefresh) { (isSuccess,shouldRefresh) in
+                
+                if shouldRefresh { // 需要刷新微博表格数据
+                    // 刷新表格
+                    self.tableView?.reloadData()
+                }
+                
+                // FIXME:下拉刷新,清除 tabbarItem 和 app 的 badgeValue
+                
+                // 重置上拉刷新标记
+                self.isPullupRefresh = false
+                
+                // 结束刷新
+                self.refreshControl?.endRefreshing()
+            }
+            
+        }
         
     }
     
