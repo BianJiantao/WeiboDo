@@ -37,6 +37,14 @@ class WBStatus: NSObject {
     var attitudes_count: Int = 0
     
     
+    /// 微博来源 - 发布的客户端
+    var source: String? {
+        didSet {
+            /// 设置微博来源 , 重置source不会再次调用 didSet
+            source = "来自 " + (source?.rgx_href()?.text ?? "未知")
+        }
+    }
+    
     /// 重写 description 的计算性属性 (开发模型时,重写模型的description )
     override var description: String{
         return yy_modelDescription()

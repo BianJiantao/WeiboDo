@@ -66,6 +66,7 @@
 		6CC9F75A1F247C7000FF154A /* WBComposeTypeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7561F247C7000FF154A /* WBComposeTypeButton.xib */; };
 		6CC9F75B1F247C7000FF154A /* WBComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F7571F247C7000FF154A /* WBComposeTypeView.swift */; };
 		6CC9F75C1F247C7000FF154A /* WBComposeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7581F247C7000FF154A /* WBComposeTypeView.xib */; };
+		6CC9F75E1F24967700FF154A /* String+RegexExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F75D1F24967700FF154A /* String+RegexExtension.swift */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		6CC9F7561F247C7000FF154A /* WBComposeTypeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBComposeTypeButton.xib; sourceTree = "<group>"; };
 		6CC9F7571F247C7000FF154A /* WBComposeTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposeTypeView.swift; sourceTree = "<group>"; };
 		6CC9F7581F247C7000FF154A /* WBComposeTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBComposeTypeView.xib; sourceTree = "<group>"; };
+		6CC9F75D1F24967700FF154A /* String+RegexExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+RegexExtension.swift"; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -336,6 +338,7 @@
 				6C23179A1F12535E00EB3193 /* UIBarButtonItem+Extension.swift */,
 				6C2317D11F1DC62900EB3193 /* UIImageView+WebImage.swift */,
 				6C2317D31F1DEB1900EB3193 /* UIImage+Extension.swift */,
+				6CC9F75D1F24967700FF154A /* String+RegexExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -747,6 +750,7 @@
 				6CC9F7591F247C7000FF154A /* WBComposeTypeButton.swift in Sources */,
 				6C2317891F12133D00EB3193 /* WBProfileViewController.swift in Sources */,
 				6C2317D01F1CACE500EB3193 /* WBStatusViewModel.swift in Sources */,
+				6CC9F75E1F24967700FF154A /* String+RegexExtension.swift in Sources */,
 				6C2317991F124A0C00EB3193 /* WBTestViewController.swift in Sources */,
 				6C2317941F121E9400EB3193 /* UIImage+JTAddition.m in Sources */,
 				6C2317A91F15B36500EB3193 /* WBStatus.swift in Sources */,

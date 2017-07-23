@@ -36,6 +36,8 @@ class WBStatusCell: UITableViewCell {
             
             retweetedTextLabel?.text = viewModel?.retweetedText
             
+            sourseLabel.text = viewModel?.status.source
+            
         }
     }
 
