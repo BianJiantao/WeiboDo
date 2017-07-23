@@ -22,7 +22,7 @@ class WBMTRefreshView: WBRefreshView {
             if parentViewHeight > 122 {
                 scale = 1
             }else {
-            scale = 1-((122 - parentViewHeight)/(122 - 25))
+                scale = 1-((122 - parentViewHeight)/(122 - 25))
             }
             
             kangarooIV.transform = CGAffineTransform(scaleX: scale, y: scale)

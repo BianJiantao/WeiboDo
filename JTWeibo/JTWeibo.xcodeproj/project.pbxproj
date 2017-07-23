@@ -60,6 +60,12 @@
 		6CC9F7431F2338BC00FF154A /* WBRefreshControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F73E1F2338BC00FF154A /* WBRefreshControl.swift */; };
 		6CC9F7441F2338BC00FF154A /* WBRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F73F1F2338BC00FF154A /* WBRefreshView.swift */; };
 		6CC9F7451F2338BC00FF154A /* WBRefreshView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7401F2338BC00FF154A /* WBRefreshView.xib */; };
+		6CC9F7521F247C2300FF154A /* WBComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F7501F247C2300FF154A /* WBComposeViewController.swift */; };
+		6CC9F7531F247C2300FF154A /* WBComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7511F247C2300FF154A /* WBComposeViewController.xib */; };
+		6CC9F7591F247C7000FF154A /* WBComposeTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F7551F247C7000FF154A /* WBComposeTypeButton.swift */; };
+		6CC9F75A1F247C7000FF154A /* WBComposeTypeButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7561F247C7000FF154A /* WBComposeTypeButton.xib */; };
+		6CC9F75B1F247C7000FF154A /* WBComposeTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC9F7571F247C7000FF154A /* WBComposeTypeView.swift */; };
+		6CC9F75C1F247C7000FF154A /* WBComposeTypeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CC9F7581F247C7000FF154A /* WBComposeTypeView.xib */; };
 		7C4587FA3D7E5081FAE53C9C /* Pods_JTWeibo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */; };
 /* End PBXBuildFile section */
 
@@ -154,6 +160,12 @@
 		6CC9F73E1F2338BC00FF154A /* WBRefreshControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshControl.swift; sourceTree = "<group>"; };
 		6CC9F73F1F2338BC00FF154A /* WBRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBRefreshView.swift; sourceTree = "<group>"; };
 		6CC9F7401F2338BC00FF154A /* WBRefreshView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBRefreshView.xib; sourceTree = "<group>"; };
+		6CC9F7501F247C2300FF154A /* WBComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposeViewController.swift; sourceTree = "<group>"; };
+		6CC9F7511F247C2300FF154A /* WBComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBComposeViewController.xib; sourceTree = "<group>"; };
+		6CC9F7551F247C7000FF154A /* WBComposeTypeButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposeTypeButton.swift; sourceTree = "<group>"; };
+		6CC9F7561F247C7000FF154A /* WBComposeTypeButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBComposeTypeButton.xib; sourceTree = "<group>"; };
+		6CC9F7571F247C7000FF154A /* WBComposeTypeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBComposeTypeView.swift; sourceTree = "<group>"; };
+		6CC9F7581F247C7000FF154A /* WBComposeTypeView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WBComposeTypeView.xib; sourceTree = "<group>"; };
 		9F155AEF263A60992B8A539D /* Pods-JTWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JTWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-JTWeibo/Pods-JTWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		B53BEA3D9655A0531AC233B2 /* Pods_JTWeibo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JTWeibo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -248,6 +260,7 @@
 		6C23174B1F11D07D00EB3193 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6CC9F7461F247BF600FF154A /* Compose(发布) */,
 				6C2317BF1F1A344300EB3193 /* NewFeature(新特性) */,
 				6C2317AE1F17175D00EB3193 /* OAuth(授权) */,
 				6C23178C1F12142600EB3193 /* Discover(发现) */,
@@ -497,6 +510,27 @@
 			path = WBRefreshControl;
 			sourceTree = "<group>";
 		};
+		6CC9F7461F247BF600FF154A /* Compose(发布) */ = {
+			isa = PBXGroup;
+			children = (
+				6CC9F7541F247C7000FF154A /* ComposeType */,
+				6CC9F7501F247C2300FF154A /* WBComposeViewController.swift */,
+				6CC9F7511F247C2300FF154A /* WBComposeViewController.xib */,
+			);
+			path = "Compose(发布)";
+			sourceTree = "<group>";
+		};
+		6CC9F7541F247C7000FF154A /* ComposeType */ = {
+			isa = PBXGroup;
+			children = (
+				6CC9F7551F247C7000FF154A /* WBComposeTypeButton.swift */,
+				6CC9F7561F247C7000FF154A /* WBComposeTypeButton.xib */,
+				6CC9F7571F247C7000FF154A /* WBComposeTypeView.swift */,
+				6CC9F7581F247C7000FF154A /* WBComposeTypeView.xib */,
+			);
+			path = ComposeType;
+			sourceTree = "<group>";
+		};
 		AA9EBDF3D7938C044151C47E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,14 +651,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC9F7531F247C2300FF154A /* WBComposeViewController.xib in Resources */,
 				6C2317CA1F1B990A00EB3193 /* WBStatusNormalCell.xib in Resources */,
 				6C2317A21F14634100EB3193 /* JTWeibo.json in Resources */,
 				6C2317251F11CBF600EB3193 /* Assets.xcassets in Resources */,
 				6C2317DA1F1F264F00EB3193 /* WBStatusRetweedCell.xib in Resources */,
 				6CC9F7421F2338BC00FF154A /* WBMTRefreshView.xib in Resources */,
 				6CC9F7451F2338BC00FF154A /* WBRefreshView.xib in Resources */,
+				6CC9F75C1F247C7000FF154A /* WBComposeTypeView.xib in Resources */,
 				6C2317C51F1A3CD300EB3193 /* WBWelcomeView.xib in Resources */,
 				6C2317C71F1AFB8700EB3193 /* WBNewFeatureView.xib in Resources */,
+				6CC9F75A1F247C7000FF154A /* WBComposeTypeButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -707,6 +744,7 @@
 				6C2317A51F14BBAB00EB3193 /* WBNetworkManager.swift in Sources */,
 				6C23175C1F11D16C00EB3193 /* WBBaseViewController.swift in Sources */,
 				6C2317631F11E41400EB3193 /* Bundle+Extension.swift in Sources */,
+				6CC9F7591F247C7000FF154A /* WBComposeTypeButton.swift in Sources */,
 				6C2317891F12133D00EB3193 /* WBProfileViewController.swift in Sources */,
 				6C2317D01F1CACE500EB3193 /* WBStatusViewModel.swift in Sources */,
 				6C2317991F124A0C00EB3193 /* WBTestViewController.swift in Sources */,
@@ -720,6 +758,7 @@
 				6C2317CC1F1B99B500EB3193 /* WBStatusCell.swift in Sources */,
 				6C2317581F11D11900EB3193 /* WBTabbarController.swift in Sources */,
 				6C2317561F11D07D00EB3193 /* AppDelegate.swift in Sources */,
+				6CC9F75B1F247C7000FF154A /* WBComposeTypeView.swift in Sources */,
 				6C2317D21F1DC62900EB3193 /* UIImageView+WebImage.swift in Sources */,
 				6C2317781F120AD700EB3193 /* UILabel+JTAddition.m in Sources */,
 				6C2317CE1F1BA88A00EB3193 /* WBUser.swift in Sources */,
@@ -734,6 +773,7 @@
 				6C2317D81F1DFB9700EB3193 /* WBStatusPicture.swift in Sources */,
 				6CC9F7441F2338BC00FF154A /* WBRefreshView.swift in Sources */,
 				6C23175A1F11D13000EB3193 /* WBNavigationController.swift in Sources */,
+				6CC9F7521F247C2300FF154A /* WBComposeViewController.swift in Sources */,
 				6CC9F7411F2338BC00FF154A /* WBMTRefreshView.swift in Sources */,
 				6C2317821F1212D500EB3193 /* WBHomeViewController.swift in Sources */,
 				6C2317D41F1DEB1900EB3193 /* UIImage+Extension.swift in Sources */,

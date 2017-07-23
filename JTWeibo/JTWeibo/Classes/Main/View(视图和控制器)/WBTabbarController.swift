@@ -72,6 +72,29 @@ class WBTabbarController: UITabBarController {
     // FIXME: 没有实现
      @objc fileprivate func composeStatus(){
         print("发微博")
+        
+        //FIXME:判断是否登录
+        
+        // 实例view
+        let view = WBComposeTypeView.composeTypeView()
+        // 展示
+        view.show { [weak view] (clsName) in
+            // 展现发布微博控制器
+            guard let clsName = clsName,
+                let cls = NSClassFromString(Bundle.main.namespace + "." + clsName) as? UIViewController.Type
+                else{
+                    view?.removeFromSuperview()
+                    
+                    return
+            }
+            
+            let vc = cls.init()
+            let nav = UINavigationController(rootViewController: vc)
+            self.present(nav, animated: true, completion: {
+                view?.removeFromSuperview()
+            })
+            
+        }
     }
     
     
