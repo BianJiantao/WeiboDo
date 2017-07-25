@@ -89,6 +89,7 @@ extension WBHomeViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath) as! WBStatusCell
         // 设置 cell
         cell.viewModel = viewModel
+        cell.delegate = self
         
         // 返回 cell
         return cell
@@ -154,4 +155,13 @@ extension WBHomeViewController{
     }
     
     
+}
+
+
+extension WBHomeViewController:WBStatusCellDelegate{
+    func statusCellDidTapURLString(cell: WBStatusCell, urlString: String) {
+        let vc = WBWebViewController()
+        vc.urlString = urlString
+        navigationController?.pushViewController(vc, animated: true)
+    }
 }

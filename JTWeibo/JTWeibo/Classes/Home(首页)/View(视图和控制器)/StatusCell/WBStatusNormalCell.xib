@@ -45,7 +45,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar_vip" translatesAutoresizingMaskIntoConstraints="NO" id="buA-sk-fg3" userLabel="认证图标"/>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ys-fS-u9J" userLabel="正文">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ys-fS-u9J" userLabel="正文" customClass="WBLabel" customModule="JTWeibo" customModuleProvider="target">
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -153,7 +153,7 @@
                 <outlet property="timeLabel" destination="1L3-4H-wUi" id="kOI-ez-ha3"/>
                 <outlet property="vipIconView" destination="buA-sk-fg3" id="0ZU-Xj-ujt"/>
             </connections>
-            <point key="canvasLocation" x="-480.5" y="-212.5"/>
+            <point key="canvasLocation" x="-618" y="-273"/>
         </tableViewCell>
     </objects>
     <resources>

@@ -8,13 +8,16 @@
 
 import UIKit
 
+@objc protocol WBStatusCellDelegate: NSObjectProtocol {
+    /// 微博cell 选中URL 字符串
+    @objc optional func statusCellDidTapURLString(cell:WBStatusCell,urlString:String)
+}
 class WBStatusCell: UITableViewCell {
-
+    
+    weak var delegate: WBStatusCellDelegate?
     //微博视图模型
     var viewModel:WBStatusViewModel?{
         didSet {
-            // 微博文本
-            statusLabel?.text = viewModel?.status.text
             // 昵称
             nameLabel.text = viewModel?.status.user?.screen_name
             // 会员图标
@@ -34,7 +37,10 @@ class WBStatusCell: UITableViewCell {
             
             pictureView.viewModel = viewModel
             
-            retweetedTextLabel?.text = viewModel?.retweetedText
+            // 转发微博 属性文本
+            retweetedTextLabel?.attributedText = viewModel?.retweededAttrText
+            // 微博 属性文本
+            statusLabel?.attributedText = viewModel?.statusAttrText
             
             sourseLabel.text = viewModel?.status.source
             
@@ -62,7 +68,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var vipIconView: UIImageView!
     
     /// 微博正文
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var statusLabel: WBLabel!
     
     /// 转发
     @IBOutlet weak var retweetedBtn: UIButton!
@@ -77,7 +83,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var pictureView: WBStatusPicturesView!
     
     /// 被转发微博的文字 - 原创微博没有此控件 一定要 '?'
-    @IBOutlet weak var retweetedTextLabel: UILabel?
+    @IBOutlet weak var retweetedTextLabel: WBLabel?
 
     
     
@@ -96,6 +102,11 @@ class WBStatusCell: UITableViewCell {
         //使用 “栅格化” 必须指定分辨率
         self.layer.rasterizationScale = UIScreen.main.scale
         
+        // MARK: - 设置微博文本代理
+        statusLabel.delegate = self
+        retweetedTextLabel?.delegate = self
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -105,3 +116,18 @@ class WBStatusCell: UITableViewCell {
     }
 
 }
+
+extension WBStatusCell:WBLabelDelegate{
+    func labelDidSelectedLinkText(label: WBLabel, text: String) {
+        
+        //判断是否是url
+        if !text.hasPrefix("http://") {
+            return
+        }
+        
+        //插入？ 如果代理没有实现协议方法，就什么都不做
+        //插入！ 代理没有实现协议方法，仍然强制执行 会崩溃
+        delegate?.statusCellDidTapURLString?(cell: self, urlString: text)
+    }
+}
+
