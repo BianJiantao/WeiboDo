@@ -36,6 +36,15 @@ class WBStatus: NSObject {
     /// 点赞数
     var attitudes_count: Int = 0
     
+    /// 创建时间字符串
+    var created_at: String?{
+        didSet{
+            
+            createdDate = Date.dateWithWBDateString(created_at ?? "")
+        }
+    }
+    /// 创建时间
+    var createdDate: Date?
     
     /// 微博来源 - 发布的客户端
     var source: String? {

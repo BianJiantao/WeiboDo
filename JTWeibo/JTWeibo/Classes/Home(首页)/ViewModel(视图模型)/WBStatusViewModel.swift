@@ -94,10 +94,10 @@ class WBStatusViewModel:CustomStringConvertible {
         
         //被转发微博的文字
         let rText = "@" + (model.retweeted_status?.user?.screen_name ?? "") + ":" + (model.retweeted_status?.text ?? "")
-        retweededAttrText = WBEmoticonManager.shared.emoticonString(string:rText, font:retweetedFont)
+        retweededAttrText = WBEmotionManager.shared.emotionString(string:rText, font:retweetedFont)
         
         //微博正文属性文本
-        statusAttrText = WBEmoticonManager.shared.emoticonString(string:model.text ?? "", font:originalFont)
+        statusAttrText = WBEmotionManager.shared.emotionString(string:model.text ?? "", font:originalFont)
         
         updateRowHeight()
     }
