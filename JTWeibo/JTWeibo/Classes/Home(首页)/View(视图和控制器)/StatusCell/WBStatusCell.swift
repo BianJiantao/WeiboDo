@@ -117,6 +117,7 @@ class WBStatusCell: UITableViewCell {
 
 }
 
+// MARK: - WBLabelDelegate
 extension WBStatusCell:WBLabelDelegate{
     func labelDidSelectedLinkText(label: WBLabel, text: String) {
         

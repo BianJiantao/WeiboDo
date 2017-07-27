@@ -63,8 +63,8 @@ class WBNetworkManager: AFHTTPSessionManager {
         // 此处params一定有值,强行解包
         params!["access_token"] = token
         
-        request(URLString: URLString, parameters: params, completion: completion)
-    
+//        request(URLString: URLString, parameters: params, completion: completion)
+        request(method: method, URLString: URLString, parameters: params, completion: completion)
     }
     
     

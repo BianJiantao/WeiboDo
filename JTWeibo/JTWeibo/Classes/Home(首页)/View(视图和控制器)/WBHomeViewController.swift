@@ -158,6 +158,7 @@ extension WBHomeViewController{
 }
 
 
+// MARK: - WBStatusCellDelegate
 extension WBHomeViewController:WBStatusCellDelegate{
     func statusCellDidTapURLString(cell: WBStatusCell, urlString: String) {
         let vc = WBWebViewController()

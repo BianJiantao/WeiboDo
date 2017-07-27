@@ -11,9 +11,9 @@ import Foundation
 
 // MARK: - 微博账号信息
 /// 账号信息
-let  WBAppKey = "1073508449";
-let  WBAppSecret = "b73b9c801631be81412e904cb5e4287d";
-let  WBAppRedirectUri = "http://www.baidu.com";
+let  WBAppKey = "1073508449"
+let  WBAppSecret = "b73b9c801631be81412e904cb5e4287d"
+let  WBAppRedirectUri = "http://www.baidu.com"
 
 // MARK: - 通知
 let WBUserShouldLoginNotification = "WBUserShouldLoginNotification"

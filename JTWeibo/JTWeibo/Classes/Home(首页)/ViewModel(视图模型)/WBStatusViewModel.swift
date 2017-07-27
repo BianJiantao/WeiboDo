@@ -172,7 +172,7 @@ class WBStatusViewModel:CustomStringConvertible {
     func updateImageSize(image: UIImage) {
         var size = image.size
         
-        let maxWith: CGFloat = 300
+        let maxWith: CGFloat = 200
         let minWidth: CGFloat = 40
         
         // 过宽图片处理
@@ -189,6 +189,11 @@ class WBStatusViewModel:CustomStringConvertible {
             size.width = minWidth
             // 等比例调整高度
             size.height = size.width * image.size.height/image.size.width / 4
+        }
+        
+        // 过高处理
+        if size.height > maxWith{
+            size.height = maxWith
         }
         
         

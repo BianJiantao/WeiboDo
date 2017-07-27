@@ -36,7 +36,7 @@ class WBEmoticonPackage: NSObject {
             
             //设置表情模型数组
             emoticonArr += modelArr
-            print(emoticonArr.count)
+//            print(emoticonArr.count)
         }
     }
     

@@ -10,7 +10,13 @@ import UIKit
 
 class WBStatusPicture: NSObject {
     /// 缩略图地址
-    var thumbnail_pic: String?
+    var thumbnail_pic: String?{
+        didSet{
+//            print(thumbnail_pic)
+           thumbnail_pic = thumbnail_pic?.replacingOccurrences(of: "/thumbnail/", with: "/wap320/")
+            
+        }
+    }
     
     override var description: String{
         return yy_modelDescription()

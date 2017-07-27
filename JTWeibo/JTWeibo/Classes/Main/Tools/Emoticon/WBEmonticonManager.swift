@@ -125,7 +125,7 @@ fileprivate extension WBEmoticonManager {
         //设置表情包数组 使用 += 不会再次给packetArr 分配空间， 直接追加数据
         packageArr += modelArr
         
-        print(packageArr)
+//        print(packageArr)
 
     }
     
