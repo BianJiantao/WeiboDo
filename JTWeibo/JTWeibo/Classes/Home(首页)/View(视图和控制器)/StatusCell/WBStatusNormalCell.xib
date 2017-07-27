@@ -148,7 +148,7 @@
                 <outlet property="nameLabel" destination="TxP-vK-6Am" id="gbY-Y2-2M3"/>
                 <outlet property="pictureView" destination="lMG-kr-NJ9" id="HIl-Gp-6eS"/>
                 <outlet property="retweetedBtn" destination="hzB-cJ-MJF" id="D4e-2R-3mI"/>
-                <outlet property="sourseLabel" destination="12o-j9-TXl" id="ETK-q8-diz"/>
+                <outlet property="sourceLabel" destination="12o-j9-TXl" id="lCp-Vy-iHL"/>
                 <outlet property="statusLabel" destination="4Ys-fS-u9J" id="Dcq-qt-Qrl"/>
                 <outlet property="timeLabel" destination="1L3-4H-wUi" id="kOI-ez-ha3"/>
                 <outlet property="vipIconView" destination="buA-sk-fg3" id="0ZU-Xj-ujt"/>

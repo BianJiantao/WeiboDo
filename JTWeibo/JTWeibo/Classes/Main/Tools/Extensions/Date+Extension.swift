@@ -19,6 +19,8 @@ extension Date {
     /// 将新浪微博格式的字符串转换成日期
       static func dateWithWBDateString(_ string: String) -> Date? {
         // 1. 转换成日期
+        // 真机需要本地化
+        dateFormatter.locale = Locale(identifier: "en")
         dateFormatter.dateFormat = "EEE MMM dd HH:mm:ss zzz yyyy"
         
         return dateFormatter.date(from: string)

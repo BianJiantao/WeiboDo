@@ -42,7 +42,7 @@ class WBStatusCell: UITableViewCell {
             // 微博 属性文本
             statusLabel?.attributedText = viewModel?.statusAttrText
             
-            sourseLabel.text = viewModel?.status.source
+            sourceLabel.text = viewModel?.status.source
             timeLabel.text = viewModel?.status.createdDate?.dateDescription
             
         }
@@ -63,7 +63,7 @@ class WBStatusCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     
     /// 来源
-    @IBOutlet weak var sourseLabel: UILabel!
+    @IBOutlet weak var sourceLabel: UILabel!
     
     /// 认证
     @IBOutlet weak var vipIconView: UIImageView!

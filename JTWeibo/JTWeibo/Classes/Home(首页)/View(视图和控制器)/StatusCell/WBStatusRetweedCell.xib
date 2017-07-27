@@ -164,7 +164,7 @@
                 <outlet property="pictureView" destination="lMG-kr-NJ9" id="HIl-Gp-6eS"/>
                 <outlet property="retweetedBtn" destination="hzB-cJ-MJF" id="D4e-2R-3mI"/>
                 <outlet property="retweetedTextLabel" destination="gaL-Ba-63j" id="kpt-wv-5El"/>
-                <outlet property="sourseLabel" destination="12o-j9-TXl" id="ukC-um-Vfp"/>
+                <outlet property="sourceLabel" destination="12o-j9-TXl" id="Xd9-sp-2cj"/>
                 <outlet property="statusLabel" destination="4Ys-fS-u9J" id="YCP-rT-yqY"/>
                 <outlet property="timeLabel" destination="1L3-4H-wUi" id="F70-9X-RLY"/>
                 <outlet property="vipIconView" destination="buA-sk-fg3" id="JrT-ns-uFF"/>
