@@ -49,7 +49,7 @@ class WBOAuthViewController: UIViewController {
     // 自动填充用户名密码 -- webView 的注入
     @objc fileprivate func autoFill(){
         
-        let js = "document.getElementById('userId').value = '2314373794@qq.com';" + "document.getElementById('passwd').value = 'test13579';"
+        let js = "document.getElementById('userId').value = '@qq.com';"
         //让webView 执行js
         webView.stringByEvaluatingJavaScript(from: js)
     }
